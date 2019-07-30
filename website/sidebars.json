@@ -1,0 +1,10 @@
+{
+  "docs": {
+    "Welcome": ["home"],
+    "Core concepts": ["twasi-plugin"],
+    "Second Category": ["doc3"]
+  },
+  "docs-other": {
+    "First Category": ["doc4", "doc5"]
+  }
+}
