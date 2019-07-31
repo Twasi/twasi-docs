@@ -80,7 +80,7 @@
 <p>If a variable does not require any parameters the brackets are optional. Use <strong>$song</strong> instead of <strong>$song()</strong></p>
 </blockquote>
 <h2><a class="anchor" aria-hidden="true" id="name-restrictions"></a><a href="#name-restrictions" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Name restrictions</h2>
-<p>Twasi-Variables must have an alphanumeric name of any length. Upper and lower case is doesn't matter.</p>
+<p>Twasi-Variables must have an alphanumeric name of any length. Upper and lower case doesn't matter.</p>
 <h3><a class="anchor" aria-hidden="true" id="examples-for-valid-names"></a><a href="#examples-for-valid-names" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Examples for valid names</h3>
 <ul>
 <li>a</li>
@@ -93,12 +93,12 @@
 <h2><a class="anchor" aria-hidden="true" id="nesting"></a><a href="#nesting" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Nesting</h2>
 <p>Twasi's variable parser is smart enough to detect nested variables. Inner variables will always be parsed before outer variables.</p>
 <h3><a class="anchor" aria-hidden="true" id="example-1"></a><a href="#example-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example</h3>
-<p>Imagine you have a command called <strong>!checkbalance</strong> to check the balance of another user. The return output could be the following:</p>
+<p>Imagine you have a command called <strong>!checkbalance</strong> to check the balance of another user. The command's return output could be the following:</p>
 <pre><code class="hljs">$balance($args(<span class="hljs-number">1</span>))
 </code></pre>
-<p>Where $balance returns the balance of the sending user or of the user specified in the first argument. $args returns the command arguments. If a number is specified it splits the arguments and only returns the requested one.</p>
+<p>Where $balance returns the balance of the sending user (if no argument is passed) or of the user specified in the first argument. $args returns all of the command arguments as one string. If a number is specified it splits the arguments and only returns the requested one (1 in this case).</p>
 <p>Now you execute your command: <strong>!checkbalance larcce</strong></p>
-<p>The parser will parse the inner variable first:</p>
+<p>The parser will parse the inner variable ('$args(1)') first:</p>
 <pre><code class="hljs"><span class="hljs-meta"><span class="hljs-meta-keyword">$balance</span>(larcce)</span>
 </code></pre>
 <p>Then the outer variable:</p>

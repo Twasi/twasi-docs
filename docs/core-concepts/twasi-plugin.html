@@ -74,7 +74,7 @@
 </tbody>
 </table>
 <h3><a class="anchor" aria-hidden="true" id="the-twasiuserplugin-class"></a><a href="#the-twasiuserplugin-class" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>The TwasiUserPlugin class</h3>
-<p>The TwasiPlugin class is instantiated once when the plugin is loaded. It has a function that must be overridden called &quot;getUserPluginClass()&quot; that returns a class extending the TwasiUserPlugin class. This class will now be instantiated foreach Twasi-User who has the plugin installed. The idea behind this is simplicity for the developers. You can temporarily store information and context that belongs to a channel in class variables of your userplugin class and do not have to put these information in Maps or something similar.</p>
+<p>The <em>TwasiPlugin</em> class is instantiated once when the plugin is loaded. It has a function that must be overridden called <em>getUserPluginClass()</em> that returns a class extending the <em>TwasiUserPlugin</em> class. This class will now be instantiated for each Twasi-User who has the plugin installed. The idea behind this is simplicity for the developers. You can temporarily store information and context that belongs to a channel in class variables of your <em>UserPlugin</em>-class and do not have to put these information in Maps or something similar.</p>
 <p>It consists of the following methods and functions that can be overridden:</p>
 <table>
 <thead>
@@ -111,7 +111,7 @@
 <span class="hljs-bullet">    -</span> <span class="hljs-string">exampleplugin.test</span>
 </code></pre>
 <h4><a class="anchor" aria-hidden="true" id="pluginyml-properties"></a><a href="#pluginyml-properties" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>plugin.yml properties</h4>
-<p>The following settings are available:</p>
+<p>The following properties are available:</p>
 <table>
 <thead>
 <tr><th>name</th><th>type</th><th>description</th><th>required</th></tr>
@@ -137,10 +137,10 @@
 <blockquote>
 <p>While the name of the plugin is required (because it's the &quot;id&quot; of the plugin) the description and the helptext are not. The reason is that you can provide these localized in the translation files of the plugin later.</p>
 </blockquote>
+<h4><a class="anchor" aria-hidden="true" id="behaviour-of-hidden-and-autoinstall"></a><a href="#behaviour-of-hidden-and-autoinstall" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Behaviour of <em>hidden</em> and <em>autoInstall</em>:</h4>
 <blockquote>
 <p>The properties <em>hidden</em> and <em>autoInstall</em> should not be used in most cases. They were implemented to create plugins that are always installed like the Debug-Plugin or the StreamTracker.</p>
 </blockquote>
-<p>Behaviour of <em>hidden</em> and <em>autoInstall</em>:</p>
 <table>
 <thead>
 <tr><th>hidden</th><th>autoInstall</th><th>behaviour</th></tr>
@@ -152,46 +152,10 @@
 </tbody>
 </table>
 <h3><a class="anchor" aria-hidden="true" id="plugin-configurations"></a><a href="#plugin-configurations" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Plugin configurations</h3>
-<p>If your plugin needs a configuration file you can create a plugin configuration class. Twasi will automatically create the file for you based on the template you specify.</p>
+<p>If your plugin needs a configuration file you can create a template class with all of the settings that should be available. Twasi will automatically create the file for you based on the template you specify. Then you can load this file in the code with one single line of code.</p>
 <blockquote>
-<p><strong>Possible use case:</strong>
-Your plugin integrates with a third party API and needs API credentials. Instead of hardcoding them you can create a configuration file where the instance hoster can put them in.</p>
+<p><strong>Possible use case:</strong> Your plugin integrates with a third party API and needs API credentials. Instead of hardcoding them you can create a configuration file where the instance hoster can put them in.</p>
 </blockquote>
-<h4><a class="anchor" aria-hidden="true" id="the-template-class"></a><a href="#the-template-class" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>The template class</h4>
-<p>You need to define the properties your configuration file should contain in a class like this:</p>
-<pre><code class="hljs css language-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyPluginConfiguration</span> </span>{
-
-    <span class="hljs-keyword">public</span> String API_KEY = <span class="hljs-string">"API_TOKEN"</span>;
-    <span class="hljs-keyword">public</span> String API_SECRET = <span class="hljs-string">"API_SECRET"</span>;
-    <span class="hljs-keyword">public</span> String[] SCOPES = {};
-
-}
-</code></pre>
-<p>In your TwasiPluginClass you can now pass this template to Twasi by defining a type parameter and get the configuration using the <em>getConfiguration()</em> method:</p>
-<pre><code class="hljs css language-Java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyPlugin</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">TwasiPlugin</span>&lt;<span class="hljs-title">MyPluginConfiguration</span>&gt; </span>{
-
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onActivate</span><span class="hljs-params">()</span></span>{
-        MyPluginConfiguration config = <span class="hljs-keyword">this</span>.getConfiguration();
-        TwasiLogger.log.debug(<span class="hljs-string">"API-Token: "</span> + config.API_KEY);
-    }
-
-}
-</code></pre>
-<p>When the <em>getConfiguration()</em> method is called the first time, it will create a yaml file containing all fields of your template in the /plugins/config folder (<em>plugin-name</em>.yml). If you define values in the template it will put them as default values into the yaml file.</p>
-<p>You can also nest properties by defining a SubClass like this:</p>
-<pre><code class="hljs css language-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyPluginConfiguration</span> </span>{
-
-    <span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> property = <span class="hljs-number">10</span>;
-    <span class="hljs-keyword">public</span> APICredentials API = <span class="hljs-keyword">new</span> APICredentials();
-
-    <span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">APICredentials</span> </span>{
-        <span class="hljs-keyword">public</span> String API_KEY = <span class="hljs-string">"API_TOKEN"</span>;
-        <span class="hljs-keyword">public</span> String API_SECRET = <span class="hljs-string">"API_SECRET"</span>;
-        <span class="hljs-keyword">public</span> String[] SCOPES = {};
-    }
-
-}
-</code></pre>
 <h3><a class="anchor" aria-hidden="true" id="translations"></a><a href="#translations" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Translations</h3>
 <p>Twasi is not restricted to one language. At the moment we support the German and the English language. To support multiple languages Twasi uses translation files (<em>country-code</em>.lang) stored in the plugin's resource folder under /translations.</p>
 <p>Currently supported languages:</p>
