@@ -8,13 +8,13 @@ This is the developer section of this documentation. If you are not a developer 
 
 ## Welcome
 
-to the official documentation of Twasi. This is the developer section which is dedicated to Java developers who are interested in Twasi Plugin development.
+to the official documentation of Twasi. This is the developer section which is dedicated to Java developers who are interested in Twasi-Plugin development.
 
 Twasi uses the modularity of Java. This documentation requires basic to enhanced experience with the Java programming language - depending on how complex a plugin should be. If you are not familiar with Java you propably won't be able to follow this documentation, but there are a lot of free beginner-friendly Java tutorials out there on the internet!
 
 ## What is Twasi?
 
-Twasi is an open source chatbot for the video-livestreaming platform Twitch. It is developed in our free time and will always be free to use.
+Twasi is an open source chatbot for the video-livestreaming platform Twitch. It is developed in our free time and will always be free to use. We offer a framework that can be used to develop custom functions for the bot very easily. If you want to learn more you're at the right place!
 
 ### Twasi-Core
 
@@ -34,7 +34,7 @@ Since Twasi is completely modular, the functionality doesn't ship with the appli
 
 ### Twasi-Panel
 
-Twasi-Panel is the frontend application of Twasi. It is using the react framework maintained by facebook to offer a modern and fast user interface. It runs in all modern browsers and does not require any installation.
+Twasi-Panel is the frontend application of Twasi. It is using the react framework maintained by Facebook to offer a modern and fast user interface. It runs in all modern browsers and does not require any installation.
 
 ## History
 

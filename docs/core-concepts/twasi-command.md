@@ -19,7 +19,7 @@ Simple Twasi-Commands consist of three main parts:
 
 - The prefix ('!' by default)
 - The command name
-- The arguments
+- The arguments (optional)
 
 #### Example
 
@@ -34,14 +34,14 @@ Simple Twasi-Commands consist of three main parts:
 
 ### Advanced commands
 
-The Twasi-Plugin-Framework offers another type of command called TwasiStructuredCommand. This command type was added to keep complex commands structured and the code clean.
+The Twasi-Plugin-Framework offers another type of command called StructuredPluginCommand. This command type was added to keep complex commands structured and the code clean.
 
 Advanced Twasi-Commands consist of four main parts:
 
 - The prefix ('!' by default)
 - The command name
 - The subcommands (optional)
-- The arguments
+- The arguments (optional)
 
 #### Example
 
@@ -55,19 +55,19 @@ Advanced Twasi-Commands consist of four main parts:
 4. '!hosts' is the first argument.
 5. '300' is the second argument.
 
-The key difference between simple and complex commands is that complex commands can register a command handler for every subcommand they have. Simple commands use one command handler for everything they can do what can really mess up the code.
+The key difference between simple and complex commands is that complex commands can register a command handler for every subcommand they have. Simple commands use one command handler for everything they can do what can really mess up the code with if-elses and switch-cases.
 
 ## Permissions
 
-Twasi-Commands can require a certain permission key. If the executor/sender of the command doesn't have that permission key, Twasi will ignore the command.
+Twasi-Commands can require a certain permission key. If the executor/sender of the command doesn't have that permission key Twasi will ignore the command.
 
 ## Cooldown
 
 To prevent overuse of a command the controller class can specify a cooldown that is applied per user when the command was successfully executed.
 
-*"Successfully executed" What does that mean?*
+### What does 'successfully executed' mean?
 
-If you want to know how the **!wiki** command works, you just type the command without any arguments. This means, that the command was **not** successfully executed since it only returns the commands syntax and doesn't really execute the command.
+**Example**: If you want to know how the **!wiki** command works, you just type the command without any arguments. This means, that the command was **not** successfully executed since it only returns the commands syntax and doesn't really execute the command.
 
 Developers can decide if a command was successful or not using the controller class.
 

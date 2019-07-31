@@ -20,7 +20,7 @@ commands.balance=Hello %s, you have already collected %d %s!
 commands.balance=Hallo %s, du hast bereits %d %s gesammelt!
 ```
 
-and in code:
+And in code:
 
 ```java
     public boolean execute(TwasiCustomCommandEvent event) {
@@ -61,7 +61,7 @@ commands.balance=Hello {sender.displayName}, you have already collected {amount}
 commands.balance=Hallo {sender.displayName}, du hast bereits {amount} {currencyName} gesammelt!
 ```
 
-and in code:
+And in code:
 
 ```java
     public boolean execute(TwasiCustomCommandEvent event) {
@@ -102,11 +102,11 @@ Static binding is the most simple binding method for the TranslationRenderer. Yo
 
 The TranslationRenderer supports object mapping. That means that we could bind any object to it and can get the values of either functions or fields of the object by selecting them with dots.
 
-'sender' is a default binding of a *TwitchAccount*-Object. The *TwitchAccount*-class has a function called *getDisplayName()* that returns (obviously) the display name of the user who executed the command.
+'sender' is the default binding of the *TwitchAccount*-Object of the command executor. The *TwitchAccount*-class has a function called *getDisplayName()* that returns (obviously) the display name of the user who executed the command.
 
 This works with public functions and public fields. It also works on multiple levels so you could render something like {object.subObject.subSubObject}.
 
-The TranslationRenderer is also kinda smart resolving those bindings. You don't have to worry about upper- or lowercase and you can ignore function the function prefixes 'get', 'is' and 'has'. All of this is possible thanks to Java Reflections ｡◕‿◕｡
+The TranslationRenderer is also kinda smart resolving those bindings. You don't have to worry about upper- or lowercase and you can ignore function prefixes 'get', 'is' and 'has'. All of this is possible thanks to Java Reflections ｡◕‿◕｡
 
 #### Example
 
@@ -123,7 +123,7 @@ The TranslationRenderer is also kinda smart resolving those bindings. You don't 
 
 #### Example
 
-Will be documented soon
+Will be documented soon. Promised!
 
 ### Default bindings
 
@@ -142,3 +142,27 @@ The following default bindings are available:
 | ver/version | static | String | The current Twasi-Core version. |
 | date | dynamic | String | Localized date string. |
 | time/clocktime | dynamic | String | The current time (24hr format HH:mm). |
+
+### Nesting translation bindings
+
+The TranslationRenderer supports nesting bindings. The inner bindings will always be resolved first.
+
+#### Example
+
+```
+{sender.{field}}
+```
+
+If there was a binding called 'field' with the value 'userName' the renderer would first parse {field}:
+
+```
+{sender.userName}
+```
+
+And then resolve the outer binding.
+
+This can be done on multiple levels without limitations.
+
+## Continue
+
+In the [next part](/docs/getting-started/plugin-variables) of the "Getting started" series you will learn how to add variables to your plugin!

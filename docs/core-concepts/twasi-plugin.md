@@ -17,7 +17,6 @@ Every Twasi-Plugin has a main class that is loaded by the Twasi core. This class
 
 It consists of the following methods and functions that can be overridden:
 
-
  | Name | Return type | Must be overridden | Description | 
  | --- | --- | --- | --- | 
  | getUserPluginClass() | Class<? extends TwasiUserPlugin> | Yes | Returns the class that will be instantiated for each user that has the plugin installed. | 
@@ -28,7 +27,7 @@ It consists of the following methods and functions that can be overridden:
 
 ### The TwasiUserPlugin class
 
-The TwasiPlugin class is instantiated once when the plugin is loaded. It has a function that must be overridden called "getUserPluginClass()" that returns a class extending the TwasiUserPlugin class. This class will now be instantiated foreach Twasi-User who has the plugin installed. The idea behind this is simplicity for the developers. You can temporarily store information and context that belongs to a channel in class variables of your userplugin class and do not have to put these information in Maps or something similar.
+The *TwasiPlugin* class is instantiated once when the plugin is loaded. It has a function that must be overridden called *getUserPluginClass()* that returns a class extending the *TwasiUserPlugin* class. This class will now be instantiated for each Twasi-User who has the plugin installed. The idea behind this is simplicity for the developers. You can temporarily store information and context that belongs to a channel in class variables of your *UserPlugin*-class and do not have to put these information in Maps or something similar.
 
 It consists of the following methods and functions that can be overridden:
 
@@ -68,7 +67,7 @@ permissions:
 
 #### plugin.yml properties
 
-The following settings are available:
+The following properties are available:
  | name | type | description | required | 
  | --- | --- | --- | --- | 
  | name | string | The unique name of the plugin. Should not be changed later. | yes | 
@@ -89,10 +88,10 @@ The following settings are available:
 
  > While the name of the plugin is required (because it's the "id" of the plugin) the description and the helptext are not. The reason is that you can provide these localized in the translation files of the plugin later.
 
+ #### Behaviour of *hidden* and *autoInstall*:
+ 
  > The properties *hidden* and *autoInstall* should not be used in most cases. They were implemented to create plugins that are always installed like the Debug-Plugin or the StreamTracker.
 
- Behaviour of *hidden* and *autoInstall*:
- 
  |hidden|autoInstall|behaviour|
   | --- | --- | --- |
   | true | false | The plugin won't show up in the plugin store and will not be installed in any channel unless it is added to a user's plugin list manually using the database. |
@@ -101,56 +100,9 @@ The following settings are available:
 
 ### Plugin configurations
 
-If your plugin needs a configuration file you can create a plugin configuration class. Twasi will automatically create the file for you based on the template you specify.
+If your plugin needs a configuration file you can create a template class with all of the settings that should be available. Twasi will automatically create the file for you based on the template you specify. Then you can load this file in the code with one single line of code.
 
-> **Possible use case:**
-> Your plugin integrates with a third party API and needs API credentials. Instead of hardcoding them you can create a configuration file where the instance hoster can put them in.
-
-#### The template class
-
-You need to define the properties your configuration file should contain in a class like this:
-
-```java
-public class MyPluginConfiguration {
-
-    public String API_KEY = "API_TOKEN";
-    public String API_SECRET = "API_SECRET";
-    public String[] SCOPES = {};
-
-}
-```
-
-In your TwasiPluginClass you can now pass this template to Twasi by defining a type parameter and get the configuration using the *getConfiguration()* method:
-
-```Java
-public class MyPlugin extends TwasiPlugin<MyPluginConfiguration> {
-
-    public void onActivate(){
-        MyPluginConfiguration config = this.getConfiguration();
-        TwasiLogger.log.debug("API-Token: " + config.API_KEY);
-    }
-
-}
-```
-
-When the *getConfiguration()* method is called the first time, it will create a yaml file containing all fields of your template in the /plugins/config folder (*plugin-name*.yml). If you define values in the template it will put them as default values into the yaml file.
-
-You can also nest properties by defining a SubClass like this:
-
-```java
-public class MyPluginConfiguration {
-
-    public int property = 10;
-    public APICredentials API = new APICredentials();
-
-    public class APICredentials {
-        public String API_KEY = "API_TOKEN";
-        public String API_SECRET = "API_SECRET";
-        public String[] SCOPES = {};
-    }
-
-}
-```
+> **Possible use case:** Your plugin integrates with a third party API and needs API credentials. Instead of hardcoding them you can create a configuration file where the instance hoster can put them in.
 
 ### Translations
 

@@ -33,7 +33,7 @@ $urlfetch(https://any-web-address.com, 120)
 
 ## Name restrictions
 
-Twasi-Variables must have an alphanumeric name of any length. Upper and lower case is doesn't matter.
+Twasi-Variables must have an alphanumeric name of any length. Upper and lower case doesn't matter.
 
 ### Examples for valid names
 
@@ -50,17 +50,17 @@ Twasi's variable parser is smart enough to detect nested variables. Inner variab
 
 ### Example
 
-Imagine you have a command called **!checkbalance** to check the balance of another user. The return output could be the following:
+Imagine you have a command called **!checkbalance** to check the balance of another user. The command's return output could be the following:
 
 ```
 $balance($args(1))
 ```
 
-Where $balance returns the balance of the sending user or of the user specified in the first argument. $args returns the command arguments. If a number is specified it splits the arguments and only returns the requested one.
+Where $balance returns the balance of the sending user (if no argument is passed) or of the user specified in the first argument. $args returns all of the command arguments as one string. If a number is specified it splits the arguments and only returns the requested one (1 in this case).
 
 Now you execute your command: **!checkbalance larcce**
 
-The parser will parse the inner variable first:
+The parser will parse the inner variable ('$args(1)') first:
 
 ```
 $balance(larcce)
