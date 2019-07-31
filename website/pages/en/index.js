@@ -63,9 +63,8 @@ class HomeSplash extends React.Component {
         <div className="inner">
           <ProjectTitle siteConfig={siteConfig} />
           <PromoSection>
-            <Button href={docUrl('twasi-core.html')}>Twasi Core Docs</Button>
-            <Button href={docUrl('twasi-plugin.html')}>Twasi Plugin Docs</Button>
-            <Button href={docUrl('twasi-panel.html')}>Twasi Panel Docs</Button>
+            <Button href={docUrl('users/home.html')}>User Documentation</Button>
+            <Button href={docUrl('home.html')}>Developer Documentation</Button>
           </PromoSection>
           <br />
           <p>
@@ -97,31 +96,24 @@ class Index extends React.Component {
       </Container>
     );
 
-    const FeatureCallout = () => (
-      <div
-        className="productShowcaseSection paddingBottom"
-        style={{textAlign: 'center'}}>
-      </div>
-    );
-
-    const TryOut = () => (
+    const PluginsSection = () => (
       <Block id="try">
         {[
           {
             content:
-              'To make your landing page more attractive, use illustrations! Check out ' +
-              '[**unDraw**](https://undraw.co/) which provides you with customizable illustrations which are free to use. ' +
-              'The illustrations you see on this page are from unDraw.',
+              'To make Twasi stand out from other similar Projects we introduced **Twasi Plugins**.' +
+              'With Twasi Plugins you can completely customize your personal instance of the Twasi Chatbot.' +
+              'Another benefit with of a modular **Open Source** Project is that other Developers can contribute to Twasi to make it even better.',
             image: `${baseUrl}img/undraw_code_review.svg`,
             imageAlign: 'left',
-            title: 'Wonderful SVG Illustrations',
+            title: 'Modular Structure',
           },
         ]}
       </Block>
     );
 
     const Description = () => (
-      <Block background="dark">
+      <Block background="light">
         {[
           {
             content:
@@ -134,21 +126,22 @@ class Index extends React.Component {
       </Block>
     );
 
-    const LearnHow = () => (
+    const TwasiAPISection = () => (
       <Block background="light">
         {[
           {
             content:
-              'Each new Docusaurus project has **randomly-generated** theme colors.',
+              'We provide a powerfull API to use for your personal Project.<br/>' +
+              'You can find a detailed Documentation for the Twasi API [**here**](https://twasi.net)',
             image: `${baseUrl}img/undraw_youtube_tutorial.svg`,
             imageAlign: 'right',
-            title: 'Randomly Generated Theme Colors',
+            title: 'Powerfull Twasi API',
           },
         ]}
       </Block>
     );
 
-    const Features = () => (
+    const ComponentsSection = () => (
       <Block layout="fourColumn">
         {[
           {
@@ -164,7 +157,7 @@ class Index extends React.Component {
             title: 'Twasi Plugins',
           },
           {
-            content: 'This is the management bord for the Twitch Bot. You can control, enable, disable and manage plugins here.',
+            content: 'This is the management board for the Twitch Bot. You can control, enable, disable and manage plugins and Functions of the Bot here.',
             image: `${baseUrl}img/undraw_monitor.svg`,
             imageAlign: 'top',
             title: 'Twasi Panel',
@@ -173,7 +166,7 @@ class Index extends React.Component {
       </Block>
     );
 
-    const Showcase = () => {
+    const SupportSection = () => {
       if ((siteConfig.users || []).length === 0) {
         return null;
       }
@@ -189,13 +182,16 @@ class Index extends React.Component {
       const pageUrl = page => baseUrl + (language ? `${language}/` : '') + page;
 
       return (
-        <div className="productShowcaseSection paddingBottom">
-          <h2>Who is Using This?</h2>
-          <p>This project is used by all these people</p>
-          <div className="logos">{showcase}</div>
+        <div className="productShowcaseSection">
+          <h2>Need Help?</h2>
+          <p>
+            We want to provide the best Support possible.<br/>
+            If you have anything to ask, just ask. Don't be shy.
+          </p>
+          <br />
           <div className="more-users">
             <a className="button" href={pageUrl('users.html')}>
-              More {siteConfig.title} Users
+              Get Support
             </a>
           </div>
         </div>
@@ -206,12 +202,11 @@ class Index extends React.Component {
       <div>
         <HomeSplash siteConfig={siteConfig} language={language} />
         <div className="mainContainer">
-          <Features />
-          <FeatureCallout />
-          <LearnHow />
-          <TryOut />
+          <ComponentsSection />
+          <TwasiAPISection />
+          <PluginsSection />
           <Description />
-          <Showcase />
+          <SupportSection />
         </div>
       </div>
     );
