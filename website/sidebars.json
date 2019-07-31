@@ -17,6 +17,14 @@
   "userdocs": {
     "Welcome": [
       "users/home"
+    ],
+    "Setup Progress": [
+      "users/setup/setup-progress",
+      "users/setup/referral-programm",
+      "users/setup/migration"
+    ],
+    "Twasi Panel": [
+      "users/twasi-panel/panel-setup"
     ]
   }
 }
