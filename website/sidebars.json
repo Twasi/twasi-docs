@@ -10,7 +10,8 @@
     ],
     "Getting started": [
       "getting-started/local-setup",
-      "getting-started/plugin-base"
+      "getting-started/plugin-base",
+      "getting-started/plugin-commands"
     ]
   },
   "userdocs": {
