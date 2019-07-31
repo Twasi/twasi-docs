@@ -5,7 +5,8 @@
     ],
     "Core concepts": [
       "core-concepts/twasi-plugin",
-      "core-concepts/twasi-command"
+      "core-concepts/twasi-command",
+      "core-concepts/twasi-variable"
     ],
     "Getting started": [
       "getting-started/local-setup",
