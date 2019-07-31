@@ -89,7 +89,15 @@ The following settings are available:
 
  > While the name of the plugin is required (because it's the "id" of the plugin) the description and the helptext are not. The reason is that you can provide these localized in the translation files of the plugin later.
 
- > hidden and autoInstall should not be used in most cases. They were implemented to create plugins that are always installed like the Debug-Plugin or the StreamTracker.
+ > The properties *hidden* and *autoInstall* should not be used in most cases. They were implemented to create plugins that are always installed like the Debug-Plugin or the StreamTracker.
+
+ Behaviour of *hidden* and *autoInstall*:
+ 
+ |hidden|autoInstall|behaviour|
+  | --- | --- | --- |
+  | true | false | The plugin won't show up in the plugin store and will not be installed in any channel unless it is added to a user's plugin list manually using the database. |
+  | false | true | New user's will see the plugin on the setup page of Twasi as recommended. |
+  | true | true | The plugin won't show up in the plugin store but will be automatically loaded for every user when Twasi starts up.
 
 ### Plugin configurations
 
@@ -150,10 +158,10 @@ public class MyPluginConfiguration {
 Twasi is not restricted to one language. At the moment we support the German and the English language. To support multiple languages Twasi uses translation files (*country-code*.lang) stored in the plugin's resource folder under /translations.
 
 Currently supported languages:
-|code|country|
-|---|---|
-|DE_DE|Germany/Deutschland|
-|EN_GB|Great Britain|
+ | code | country | 
+ | --- | --- | 
+ | DE_DE | Germany/Deutschland | 
+ | EN_GB | Great Britain | 
 
 They are structured like this:
 
@@ -169,8 +177,8 @@ translations keys can be chosen by the plugin developer but should be separated 
 
 There are default translation keys that should always be set:
 
-|key|description|
-|---|---|
-|plugin.name|The localized name of the plugin.|
-|plugin.description|The localized description of the plugin.|
-|plugin.helptext|The localized helptext of the plugin.|
+ | key | description | 
+ | --- | --- | 
+ | plugin.name | The localized name of the plugin. | 
+ | plugin.description | The localized description of the plugin. | 
+ | plugin.helptext | The localized helptext of the plugin. | 

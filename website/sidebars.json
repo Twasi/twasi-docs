@@ -1,10 +1,20 @@
 {
   "docs": {
-    "Welcome": ["home"],
-    "Core concepts": ["twasi-plugin"],
-    "Second Category": ["doc3"]
+    "Welcome": [
+      "home"
+    ],
+    "Core concepts": [
+      "core-concepts/twasi-plugin",
+      "core-concepts/twasi-command"
+    ],
+    "Getting started": [
+      "getting-started/plugin-base"
+    ]
   },
   "docs-other": {
-    "First Category": ["doc4", "doc5"]
+    "First Category": [
+      "doc4",
+      "doc5"
+    ]
   }
 }

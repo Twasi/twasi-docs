@@ -4,7 +4,7 @@ title: Home
 sidebar_label: Home
 ---
 
-This is the developer section of this documentation. If you're a user please click [here](/users).
+This is the developer section of this documentation. If you are not a developer please click [here](/docs/users).
 
 ## Welcome
 
