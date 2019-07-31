@@ -36,10 +36,10 @@ class HomeSplash extends React.Component {
     );
 
     const ProjectTitle = () => (
-      /*<h2 className="projectTitle">
+      <h2 className="projectTitle">
         {siteConfig.title}
         <small>{siteConfig.tagline}</small>
-      </h2>*/<span></span>
+      </h2>
     );
 
     const PromoSection = props => (
@@ -60,14 +60,19 @@ class HomeSplash extends React.Component {
 
     return (
       <SplashContainer>
-        <Logo img_src={`${baseUrl}img/undraw_monitor.svg`} />
         <div className="inner">
           <ProjectTitle siteConfig={siteConfig} />
           <PromoSection>
-            <Button href="#try">Try It Out</Button>
-            <Button href={docUrl('doc1.html')}>Example Link</Button>
-            <Button href={docUrl('doc2.html')}>Example Link 2</Button>
+            <Button href={docUrl('twasi-core.html')}>Twasi Core Docs</Button>
+            <Button href={docUrl('twasi-plugin.html')}>Twasi Plugin Docs</Button>
+            <Button href={docUrl('twasi-panel.html')}>Twasi Panel Docs</Button>
           </PromoSection>
+          <br />
+          <p>
+            Twasi is an open source Twitchbot. It is easy to use and the hosting is provided. It is built with a modular system.<br/>
+            There are three main Components to Twasi, the <b>Twasi Core</b> wich is, like the Name points out, the Core Application of the Twasi Twitchbot.<br />
+            The <b>Twasi Plugins</b> provide the Functionality of the Chatbot and the <b>Twasi Panel</b> wich acts as an UI for Userfriendly access to all the Functions of Twasi.
+          </p>
         </div>
       </SplashContainer>
     );
@@ -96,8 +101,6 @@ class Index extends React.Component {
       <div
         className="productShowcaseSection paddingBottom"
         style={{textAlign: 'center'}}>
-        <h2>Feature Callout</h2>
-        <MarkdownBlock>These are features of this project</MarkdownBlock>
       </div>
     );
 
@@ -149,16 +152,22 @@ class Index extends React.Component {
       <Block layout="fourColumn">
         {[
           {
-            content: 'This is the content of my feature',
+            content: 'Twasi Core is the Core Application of the Twasi Twitchbot. It hosts all the other plugins, manages the connection to the interface (Twitch IRC) and manages data persistence.',
             image: `${baseUrl}img/undraw_react.svg`,
             imageAlign: 'top',
-            title: 'Feature One',
+            title: 'Twasi Core',
           },
           {
-            content: 'The content of my second feature',
+            content: 'Twasi itself does not provide many features to use in the Twitch chat. Instead it loads plugins that contain these features bundled in a .jar file.',
             image: `${baseUrl}img/undraw_operating_system.svg`,
             imageAlign: 'top',
-            title: 'Feature Two',
+            title: 'Twasi Plugins',
+          },
+          {
+            content: 'This is the management bord for the Twitch Bot. You can control, enable, disable and manage plugins here.',
+            image: `${baseUrl}img/undraw_monitor.svg`,
+            imageAlign: 'top',
+            title: 'Twasi Panel',
           },
         ]}
       </Block>
