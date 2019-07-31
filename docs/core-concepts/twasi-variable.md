@@ -74,4 +74,4 @@ Then the outer variable:
 
 ## Deep parsing
 
-Should a Twasi-Variable return another Twasi-Variable, the returned variable will be parsed too (not unlimmited, the parser will abort if parsing goes too deep).
+Should a Twasi-Variable return another Twasi-Variable, the returned variable will be parsed too (not unlimited, the parser will abort if parsing goes too deep).
