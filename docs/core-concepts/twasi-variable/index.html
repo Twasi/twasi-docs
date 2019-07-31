@@ -1,0 +1,109 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>The Twasi-Variable · TwasiDocs</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="&gt; This documentation is not related to the twasi-variables-plugin that allows users to create their own variables. Here you can learn about the variables that can be registered by Twasi-Plugins."/><meta name="docsearch:language" content="en"/><meta property="og:title" content="The Twasi-Variable · TwasiDocs"/><meta property="og:type" content="website"/><meta property="og:url" content="https://github.com/twasi/"/><meta property="og:description" content="&gt; This documentation is not related to the twasi-variables-plugin that allows users to create their own variables. Here you can learn about the variables that can be registered by Twasi-Plugins."/><meta property="og:image" content="https://github.com/twasi/img/undraw_online.svg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://github.com/twasi/img/undraw_tweetstorm.svg"/><link rel="shortcut icon" href="/img/favicon.ico"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-dark.min.css"/><link rel="alternate" type="application/atom+xml" href="https://github.com/twasi/blog/atom.xml" title="TwasiDocs Blog ATOM Feed"/><link rel="alternate" type="application/rss+xml" href="https://github.com/twasi/blog/feed.xml" title="TwasiDocs Blog RSS Feed"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/prism.css"/><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/docs-logo.svg" alt="TwasiDocs"/><h2 class="headerTitleWithLogo">TwasiDocs</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="siteNavGroupActive"><a href="/docs/home" target="_self">Developers</a></li><li class=""><a href="/docs/users/home" target="_self">Users</a></li><li class=""><a href="/help" target="_self">Help</a></li><li class=""><a href="/blog/" target="_self">Blog</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>Core concepts</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle">Welcome</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/home">Home</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Core concepts</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/core-concepts/twasi-plugin">The Twasi-Plugin</a></li><li class="navListItem"><a class="navItem" href="/docs/core-concepts/twasi-command">The Twasi-Command</a></li><li class="navListItem navListItemActive"><a class="navItem" href="/docs/core-concepts/twasi-variable">The Twasi-Variable</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Getting started</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/getting-started/local-setup">Local Twasi setup</a></li><li class="navListItem"><a class="navItem" href="/docs/getting-started/plugin-base">Plugin Base</a></li><li class="navListItem"><a class="navItem" href="/docs/getting-started/plugin-commands">Plugin commands</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 class="postHeaderTitle">The Twasi-Variable</h1></header><article><div><span><blockquote>
+<p>This documentation is not related to the twasi-variables-plugin that allows users to create their own variables. Here you can learn about the variables that can be registered by Twasi-Plugins.</p>
+</blockquote>
+<h2><a class="anchor" aria-hidden="true" id="what-is-a-twasi-variable"></a><a href="#what-is-a-twasi-variable" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>What is a Twasi-Variable?</h2>
+<p>Twasi-Variables can make the output of commands the user added dynamic. They can be added by plugins and are resolved by controller classes.</p>
+<h2><a class="anchor" aria-hidden="true" id="what-does-a-twasi-variable-consist-of"></a><a href="#what-does-a-twasi-variable-consist-of" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>What does a Twasi-Variable consist of?</h2>
+<p>Twasi-Variables consist of three main parts:</p>
+<ul>
+<li>The prefix ('$' by default - can <strong>not</strong> be changed at the moment)</li>
+<li>The variable name</li>
+<li>Comma separated custom arguments</li>
+</ul>
+<h4><a class="anchor" aria-hidden="true" id="example"></a><a href="#example" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example</h4>
+<pre><code class="hljs"><span class="hljs-constructor">$urlfetch(<span class="hljs-params">https</span>:<span class="hljs-operator">/</span><span class="hljs-operator">/</span><span class="hljs-params">any</span>-<span class="hljs-params">web</span>-<span class="hljs-params">address</span>.<span class="hljs-params">com</span>, 120)</span>
+</code></pre>
+<ol>
+<li>'$' is the variable prefix.</li>
+<li>'urlfetch' is the variable name</li>
+<li>'()' is the indicator for variable arguments (optional)</li>
+<li>'<a href="https://any-web-address.com">https://any-web-address.com</a>' is the first argument</li>
+<li>'120' is the second argument.</li>
+</ol>
+<blockquote>
+<p>If a variable does not require any parameters the brackets are optional. Use <strong>$song</strong> instead of <strong>$song()</strong></p>
+</blockquote>
+<h2><a class="anchor" aria-hidden="true" id="name-restrictions"></a><a href="#name-restrictions" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Name restrictions</h2>
+<p>Twasi-Variables must have an alphanumeric name of any length. Upper and lower case is doesn't matter.</p>
+<h3><a class="anchor" aria-hidden="true" id="examples-for-valid-names"></a><a href="#examples-for-valid-names" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Examples for valid names</h3>
+<ul>
+<li>a</li>
+<li>fetchurl</li>
+<li>this1is2a3test4</li>
+<li>45</li>
+<li>a1B2</li>
+<li>A1b2</li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="nesting"></a><a href="#nesting" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Nesting</h2>
+<p>Twasi's variable parser is smart enough to detect nested variables. Inner variables will always be parsed before outer variables.</p>
+<h3><a class="anchor" aria-hidden="true" id="example-1"></a><a href="#example-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example</h3>
+<p>Imagine you have a command called <strong>!checkbalance</strong> to check the balance of another user. The return output could be the following:</p>
+<pre><code class="hljs">$balance($args(<span class="hljs-number">1</span>))
+</code></pre>
+<p>Where $balance returns the balance of the sending user or of the user specified in the first argument. $args returns the command arguments. If a number is specified it splits the arguments and only returns the requested one.</p>
+<p>Now you execute your command: <strong>!checkbalance larcce</strong></p>
+<p>The parser will parse the inner variable first:</p>
+<pre><code class="hljs"><span class="hljs-meta"><span class="hljs-meta-keyword">$balance</span>(larcce)</span>
+</code></pre>
+<p>Then the outer variable:</p>
+<pre><code class="hljs"><span class="hljs-number">50</span>
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="deep-parsing"></a><a href="#deep-parsing" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Deep parsing</h2>
+<p>Should a Twasi-Variable return another Twasi-Variable, the returned variable will be parsed too (not unlimmited, the parser will abort if parsing goes too deep).</p>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/core-concepts/twasi-command"><span class="arrow-prev">← </span><span>The Twasi-Command</span></a><a class="docs-next button" href="/docs/getting-started/local-setup"><span>Local Twasi setup</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#what-is-a-twasi-variable">What is a Twasi-Variable?</a></li><li><a href="#what-does-a-twasi-variable-consist-of">What does a Twasi-Variable consist of?</a></li><li><a href="#name-restrictions">Name restrictions</a><ul class="toc-headings"><li><a href="#examples-for-valid-names">Examples for valid names</a></li></ul></li><li><a href="#nesting">Nesting</a><ul class="toc-headings"><li><a href="#example-1">Example</a></li></ul></li><li><a href="#deep-parsing">Deep parsing</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><div><h5>Docs</h5><a href="/docs/en/users/home.html">User Documentation</a><a href="/docs/en/home.html">Developer Documentation</a><a href="/docs/en/doc3.html">API Reference</a></div><div><h5>Community</h5><a href="https://discordapp.com/">Discord</a><a href="https://twitter.com/twasinet" target="_blank" rel="noreferrer noopener">Twitter</a></div><div><h5>More</h5><a href="/blog">Blog</a><a href="https://github.com/twasi" target="_blank">GitHub</a><a class="github-button" data-icon="octicon-star" data-count-href="/twasi/twasi-core" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><a href="https://opensource.facebook.com/" target="_blank" rel="noreferrer noopener" class="fbOpenSource"><img src="/img/oss_logo.png" alt="Facebook Open Source" width="170" height="45"/></a><section class="copyright">Copyright © 2019 Twasi | Twasi.NET | Docs.Twasi.NET</section></footer></div></body></html>
