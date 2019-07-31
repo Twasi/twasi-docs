@@ -101,6 +101,7 @@ The entry point of every Twasi-Plugin is the TwasiPlugin-class. To add it create
 ```java
 package de.merlinw;
 
+import net.twasi.core.logger.TwasiLogger;
 import net.twasi.core.plugin.TwasiPlugin;
 import net.twasi.core.plugin.api.TwasiUserPlugin;
 
@@ -108,6 +109,11 @@ public class ExamplePlugin extends TwasiPlugin {
     
     public Class<? extends TwasiUserPlugin> getUserPluginClass() {
         return null;
+    }
+
+    // To test if your plugin works you can make it say hello on startup
+    public void onActivate(){
+        TwasiLogger.log.info("Hello! I'm the example plugin c:");
     }
     
 }
@@ -156,5 +162,16 @@ description: "Just an example plugin"
 
 You can find all available properties [here](/docs/core-concepts/twasi-plugin#pluginyml-properties).
 
-## Building your plugin
+## Building the plugin
 
+> To test your plugin in a local environment you need to set up a Twasi-Core instance, if you haven't done that yet.
+
+Your plugin base is finished and Twasi-Core should be able to load it. All you need to do now is to build it to get a .jar file. In IntelliJ you can create a runtime-configuration for that. Just click "Add configuration" at the top bar of the IDE, click the add-button, choose maven and enter "clean compile package" into the command-line field. Save the configuration and click run. Now maven compiles your plugin and puts the jar file into a new folder called "target".
+
+If you don't use IntelliJ please install maven globally on your system. You can find a tutorial for that [here](https://www.baeldung.com/install-maven-on-windows-linux-mac).
+
+After you've installed maven just open up a terminal in the root folder of your plugin (where the pom.xml file is located) and run "mvn clean compile package".
+
+## Continue
+
+In the [next part](/docs/getting-started/plugin-commands) of the "Getting started" series you will learn how to add [commands](/docs/core-concepts/twasi-command) to your plugin!

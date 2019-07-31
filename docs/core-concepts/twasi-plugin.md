@@ -125,7 +125,6 @@ In your TwasiPluginClass you can now pass this template to Twasi by defining a t
 ```Java
 public class MyPlugin extends TwasiPlugin<MyPluginConfiguration> {
 
-    @Override
     public void onActivate(){
         MyPluginConfiguration config = this.getConfiguration();
         TwasiLogger.log.debug("API-Token: " + config.API_KEY);

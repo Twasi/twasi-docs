@@ -8,13 +8,13 @@
       "core-concepts/twasi-command"
     ],
     "Getting started": [
+      "getting-started/local-setup",
       "getting-started/plugin-base"
     ]
   },
-  "docs-other": {
-    "First Category": [
-      "doc4",
-      "doc5"
+  "userdocs": {
+    "Welcome": [
+      "users/home"
     ]
   }
 }
