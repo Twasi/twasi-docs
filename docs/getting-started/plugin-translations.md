@@ -163,6 +163,74 @@ And then resolve the outer binding.
 
 This can be done on multiple levels without limitations.
 
+### Random translations
+
+If your plugin should return a random sentence you can declare your syntax key multiple times and call the *renderRandom(String key)*-function.
+
+#### Example
+
+**EN_GB.lang**:
+
+```
+my.translation.key=Hello {user.displayNmame}
+my.translation.key=Hey, {user.displayName}. How are you?
+my.translation.key=I say hi to {user.displayName}!
+```
+
+And in code:
+
+```java
+    public boolean execute(TwasiCustomCommandEvent event) {
+        TranslationRenderer renderer = event.getRenderer();
+
+        // This always returns the first sentence
+        String translation = renderer.render("my.translation.key");
+
+        // But this always picks a random one of the three sentences
+        String randomTranslation = renderer.renderRandom("my.translation.key");
+    }
+```
+
+## Fallback translations
+
+No matter if you use the old or the new system, the EN_GB.lang file is always the fallback language file that will be used if either the used key is not available in the requested language or the language file doesn't exist at all.
+
+This is why all plugins should contain a complete english translation.
+
+## Default translation keys
+
+Some translation keys are reserved and should not be used for anything else.
+
+### Plugin information keys
+
+To localize your plugin information you can use the following translation keys:
+
+| key | description |
+| --- | --- |
+| plugin.name | The plugin name that is shown in the plugin store of Twaso-Panel. |
+| plugin.description | The plugin description that is shown in the plugin store of Twaso-Panel. |
+| plugin.helptext | The plugin helptext that is shown in the plugin store of Twaso-Panel. |
+
+### Plugin permission descriptions
+
+> This is not implemented yet but will be implemented soon!
+
+It's not always clear what permissions a permission key *exactly* grants. You should give all of your translation keys a clear name to make everyone understand it. These should also be localized so we add them to our translation files with a leading '§'.
+
+#### Example
+
+If you want to describe the following permission key:
+
+```
+commands.add
+```
+
+your translation should looks like this:
+
+```
+§commands.add=Add new commands to the channel
+```
+
 ## Continue
 
 In the [next part](/docs/getting-started/plugin-variables) of the "Getting started" series you will learn how to add variables to your plugin!
