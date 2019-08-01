@@ -12,7 +12,9 @@
       "getting-started/local-setup",
       "getting-started/plugin-base",
       "getting-started/plugin-commands",
-      "getting-started/plugin-translations"
+      "getting-started/plugin-translations",
+      "getting-started/plugin-variables",
+      "getting-started/plugin-permissions"
     ]
   },
   "userdocs": {
