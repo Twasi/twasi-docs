@@ -10,15 +10,15 @@ Getting started in Twasi-Plugin development is easy. All you need is basic knowl
 
 We are going to create an example plugin without further functionality. On the next pages we will add commands, variables, permissions, services, an API and a database repository for it.
 
-> To continue please make sure that you have the **JDK 1.8** installed. You can also use an OpenJDK Build of version 1.8 from [here](https://github.com/ojdkbuild/ojdkbuild/releases). Twasi development is working fine with it.
+> To continue, please make sure that you have the **JDK 1.8** installed. You can also use an OpenJDK Build of version 1.8 from [here](https://github.com/ojdkbuild/ojdkbuild/releases). Twasi development is working fine with it.
 
 ## Creating the project
 
-First you need to create a new Maven project. I use IntelliJ IDEA for that. If you want to use another IDE please find out how to create a Maven project with it on the internet.
+First you need to create a new Maven project. I use IntelliJ IDEA for that. If you want to use another IDE, please find out how to create a Maven project with it on the internet.
 
-> Maven is a dependency injection system for Java. It will help you adding the Twasi-Plugin-Framework to your project. Please don't be deterred if you haven't used maven yet. It's quite simple to get started and simplifies your dependency management.
+> Maven is a dependency injection system for Java. It will help you adding the Twasi-Plugin-Framework to your project. Please don't be deterred if you haven't used Maven yet. It's quite simple to get started and simplifies your dependency management.
 
-To do that click on "Create new Project", choose *Maven* on the left und select (or configure) your **JDK 1.8**. After that you need to choose a package and an ArtifactID. Please use your own package name (what usually consists of a domain name that you own backwards: *merlinw.de* > de.merlinw, twasi.net > net.twasi). The ArtifactID is your plugin's / project's name.
+To do that, click on "Create new Project", choose *Maven* on the left und select (or configure) your **JDK 1.8**. After that you need to choose a package and an ArtifactID. Please use your own package name (what usually consists of a domain name that you own backwards: *merlinw.de* > de.merlinw, twasi.net > net.twasi). The ArtifactID is your plugin's / project's name.
 
 Maven will now create this file structure for you:
 
@@ -58,7 +58,7 @@ Open up the pom.xml file. Here you can specify the dependencies of your plugin. 
 
 ![Maven Auto Import Prompt](/img/docs/getting-started/plugin-base/maven-prompt.png)
 
-Now we need to include Twasi-Core into our project to get access to the Plugin-Framework. We also need to tell Maven where to search for it. To do so we add the Twasi-Artifactory as a repository and the Twasi-Core as a dependency (directly after the \<**version**>-tag):
+Now we need to include Twasi-Core into our project to get access to the Plugin-Framework. We also need to tell Maven where to search for it. To do so, we add the Twasi-Artifactory as a repository and the Twasi-Core as a dependency (directly after the \<**version**>-tag):
 
 ```xml
     <repositories>
@@ -88,15 +88,15 @@ Now we need to include Twasi-Core into our project to get access to the Plugin-F
     </dependencies>
 ```
 
-If you do not use IntelliJ or have auto-import disabled make sure that maven imports the dependencies.
+If you do not use IntelliJ or have auto-import disabled, make sure that maven imports the dependencies.
 
-> "\<**scope**>provided<**/scope**>" tells the maven compiler not to include the Twasi-Core into your jar file when you compile your plugin. Since the plugin is loaded directly from the core, all classes of the framework will be available at runtime.
+> "\<**scope**>provided<**/scope**>" tells the Maven compiler not to include the Twasi-Core into your jar file when you compile your plugin. Since the plugin is loaded directly from the core, all classes of the framework will be available at runtime.
 
 ## Creating the plugin's main classes
 
 ### The TwasiPlugin class
 
-The entry point of every Twasi-Plugin is the *TwasiPlugin*-class. To add it create your package inside of the "/src/main/java/" folder and add a new class to it (you can use any class name, I'll take *ExamplePlugin*) and make it extend *TwasiPlugin* like this:
+The entry point of every Twasi-plugin is the *TwasiPlugin*-class. To add it, create your package inside of the "/src/main/java/" folder and add a new class to it (you can use any class name, I'll take *ExamplePlugin*) and make it extend *TwasiPlugin* like this:
 
 ```java
 package de.merlinw;
@@ -111,7 +111,7 @@ public class ExamplePlugin extends TwasiPlugin {
         return null;
     }
 
-    // To test if your plugin works you can make it say hello on startup
+    // To test if your plugin works, you can make it say hello on startup
     public void onActivate(){
         TwasiLogger.log.info("Hello! I'm the example plugin c:");
     }
@@ -151,7 +151,7 @@ public class ExamplePlugin extends TwasiPlugin {
 
 ## Creating the plugin.yml file
 
-Now you need to tell Twasi-Core where your *TwasiPlugin*-class is. To do that and to give the core more information about your plugin (like it's name, the version etc.) create a new file called "plugin.yml" in the "/src/main/resources" directory containing the following properties:
+Now you need to tell Twasi-Core where your *TwasiPlugin*-class is. To do that and to give the core more information about your plugin (like it's name, the version etc.), create a new file called "plugin.yml" in the "/src/main/resources" directory containing the following properties:
 
 ```yml
 name: "ExamplePlugin" # This should be unique
@@ -164,9 +164,9 @@ You can find all available properties [here](/docs/core-concepts/twasi-plugin#pl
 
 ## Adding a plugin configuration
 
-If your plugin needs a configuration (for API-Credentials e.g.) you can define a configuration template and let Twasi do the rest for you. It will create a yml file for you automatically that can be used in your code in no time.
+If your plugin needs a configuration (for API-Credentials e.g.), you can define a configuration template and let Twasi do the rest for you. It will create a yml file for you automatically that can be used in your code in no time.
 
-> If your plugin doesn't need further configuration properties just skip this step!
+> If your plugin doesn't need further configuration properties, just skip this step!
 
 ### The template class
 
@@ -197,7 +197,7 @@ public class MyPlugin extends TwasiPlugin<MyPluginConfiguration> {
 }
 ```
 
-When the *getConfiguration()* method is called the first time, it will create a yaml file containing all fields of your template in the /plugins/config folder (*plugin-name*.yml). If you define values in the template it will put them as default values into the yaml file.
+When the *getConfiguration()* method is called the first time, it will create a yaml file containing all fields of your template in the /plugins/config folder (*plugin-name*.yml). If you define values in the template, it will put them as default values into the yaml file.
 
 ### Nesting properties
 
@@ -220,13 +220,13 @@ public class MyPluginConfiguration {
 
 ## Building the plugin
 
-> To test your plugin in a local environment you need to set up a Twasi-Core instance, if you haven't done that yet. You can learn how to do that [here](/docs/getting-started/local-setup).
+> To test your plugin in a local environment, you need to set up a Twasi-Core instance, if you haven't done that yet. You can learn how to do that [here](/docs/getting-started/local-setup).
 
-Your plugin base is finished and Twasi-Core should be able to load it. All you need to do now is to build it to get a .jar file. In IntelliJ you can create a runtime-configuration for that. Just click "Add configuration" at the top bar of the IDE, click the add-button, choose maven and enter "clean compile package" into the command-line field. Save the configuration and click run. Now maven compiles your plugin and puts the jar file into a new folder called "target".
+Your plugin base is finished and Twasi-Core should be able to load it. All you need to do now is to build it to get a .jar file. In IntelliJ, you can create a runtime-configuration for that. Just click "Add configuration" at the top bar of the IDE, click the add-button, choose Maven and enter "clean compile package" into the command-line field. Save the configuration and click run. Now Maven compiles your plugin and puts the jar file into a new folder called "target".
 
-If you don't use IntelliJ please install maven globally on your system. You can find a tutorial for that [here](https://www.baeldung.com/install-maven-on-windows-linux-mac).
+If you don't use IntelliJ, please install Maven globally on your system. You can find a tutorial for that [here](https://www.baeldung.com/install-maven-on-windows-linux-mac).
 
-After you've installed maven just open up a terminal in the root folder of your plugin (where the pom.xml file is located) and run "mvn clean compile package".
+After you've installed Maven, just open up a terminal in the root folder of your plugin (where the pom.xml file is located) and run "mvn clean compile package".
 
 ## Continue
 
