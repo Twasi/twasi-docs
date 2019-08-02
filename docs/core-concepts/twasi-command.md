@@ -3,19 +3,19 @@ id: twasi-command
 title: The Twasi-Command
 ---
 
-> This documentation is not related to the twasi-command-plugin that allows users to create their own commands. Here you can learn about the commands that can be registered by Twasi-Plugins.
+> This documentation is not related to the twasi-command-plugin that allows users to create their own commands. Here you can learn more about the commands that can be registered by Twasi-plugins.
 
-## What is a Twasi-Command?
+## What is a Twasi-command?
 
-You can use commands to control the bot from your Twitch chat. A command is quite similar to a normal chat message, but starts with a given prefix. Be default this is "!" (you can change that in the twasi.yml file in the root folder of your Twasi-Core instance).
+You can use commands to control the bot from your Twitch chat. A command is quite similar to a normal chat message, but starts with a given prefix. By default this is "!" (you can change that in the twasi.yml file in the root folder of your Twasi-Core instance).
 
-Twasi-Commands can be implemented using a controller class. This is a class dedicated to executing one certain command. You can learn more about that [here](/docs/getting-started/plugin-commands).
+Twasi-commands can be implemented by using a controller class. This is a class dedicated to executing one certain command. You can learn more about that [here](/docs/getting-started/plugin-commands).
 
 ## What does a Twasi-Command consist of?
 
 ### Simple commands
 
-Simple Twasi-Commands consist of three main parts:
+Simple Twasi-commands are made up of three main parts:
 
 - The prefix ('!' by default)
 - The command name
@@ -34,9 +34,9 @@ Simple Twasi-Commands consist of three main parts:
 
 ### Advanced commands
 
-The Twasi-Plugin-Framework offers another type of command called StructuredPluginCommand. This command type was added to keep complex commands structured and the code clean.
+The Twasi-plugin-framework offers another type of command called StructuredPluginCommand. This command type was added to keep complex commands structured and the code clean.
 
-Advanced Twasi-Commands consist of four main parts:
+Advanced Twasi-commands are made up of four main parts:
 
 - The prefix ('!' by default)
 - The command name
@@ -55,22 +55,22 @@ Advanced Twasi-Commands consist of four main parts:
 4. '!hosts' is the first argument.
 5. '300' is the second argument.
 
-The key difference between simple and complex commands is that complex commands can register a command handler for every subcommand they have. Simple commands use one command handler for everything they can do what can really mess up the code with if-elses and switch-cases.
+The key difference between simple and complex commands is that complex commands can register a command handler for every subcommand they have. Simple commands use only one command handler for everything they can do. This can really mess up the code with if-elses and switch-cases.
 
 ## Permissions
 
-Twasi-Commands can require a certain permission key. If the executor/sender of the command doesn't have that permission key Twasi will ignore the command.
+Twasi-Commands can require a certain permission key. If the executor/sender of the command doesn't have that permission key, Twasi will ignore the command.
 
 ## Cooldown
 
-To prevent overuse of a command the controller class can specify a cooldown that is applied per user when the command was successfully executed.
+To prevent overuse of a command, the controller class can specify a cooldown that is applied per user when the command was successfully executed.
 
 ### What does 'successfully executed' mean?
 
-**Example**: If you want to know how the **!wiki** command works, you just type the command without any arguments. This means, that the command was **not** successfully executed since it only returns the commands syntax and doesn't really execute the command.
+**Example**: If you want to know how the **!wiki** command works, you just type in the command without any arguments. This means, that the command was **not** successfully executed since it only returns the commands syntax and doesn't really execute the command.
 
-Developers can decide if a command was successful or not using the controller class.
+Developers can decide if a command was successful or not, using the controller class.
 
 ## Aliases
 
-If a command should not only react to one command name it can define aliases that will execute the command too.
+If a command should not only react to one command name, it can define aliases that will execute the command too.
