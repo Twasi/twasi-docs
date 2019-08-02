@@ -3,41 +3,41 @@ id: profile-page
 title: Profile Page
 ---
 
-> The Profile Page is not fully implemented yet.  
-We will work on the Profile Page during the Closed Beta of Twasi.
+> The profile page is not fully implemented yet.  
+We will work on the profile page during the Closed Beta of Twasi.
 
-## Sections of the Profile Page
+## Sections of the profile page
 
-The Profile Page consists of a variety of different cards with different functions.
+The profile page consists of a variety of different cards with diverse functions.
 
-### Your Twasi Data
+### Your Twasi data
 
-In the "*Your Twasi Data*" Card you will find general informations about your Twasi and Twitch Account.  
-From there on you can also delete your whole Twasi Account.
+In the "*Your Twasi data*" card you will find general information about your Twasi and Twitch account.  
+From there onward you can also delete your whole Twasi account.
 
 ![Your Twasi Data](/img/userdocs/twasi-panel/profile-page/your-twasi-data.png)
 
 ### Social Media
 
-The "*Social Media*" Section is used to connect your social Media accounts to Twasi.  
-Developers can then use functions of the connected Accounts to implement new Features to their Plugins.
+The "*Social Media*" section is used to connect your Social Media accounts to Twasi.  
+Thereupon, developers can use functions of the connected accounts to implement new features to their plugins.
 
-> This Feature is not usable at the moment.
+> This feature is not usable at the moment.
 
 ![Social Media](/img/userdocs/twasi-panel/profile-page/social-media.png)
 
 ### Badges
 
-The "*Badges*" are used to show others how special you are. We release Badges after certain Events or for certain Achievements.
+The "*Badges*" are used to show others how special you are. We release badges after certain events or for certain achievements.
 
-> This Feature is not usable at the moment.
+> This feature is not usable at the moment.
 
 ![Badges](/img/userdocs/twasi-panel/profile-page/badges.png)
 
-### Own Bot Account
+### Own bot account
 
-With this Feature you can connect your own Bot Account with Twasi to show Messages with your specific Twitch Bot Account in your Channel.
+With this feature you can connect your own bot account with Twasi to show messages with your specific Twitch bot account in your channel.
 
-> This Feature is not usable at the moment.
+> This feature is not usable at the moment.
 
 ![Own Bot Account](/img/userdocs/twasi-panel/profile-page/bot-account.png)

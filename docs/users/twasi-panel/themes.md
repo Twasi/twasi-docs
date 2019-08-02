@@ -3,18 +3,18 @@ id: themes
 title: Themes
 ---
 
-## Seriously. Who wants to work with a bad looking Site?
+## Seriously. Who wants to work with a bad looking site?
 
-Especially when you possibly see it everytime you stream.  
-But as we all know taste is different so we decided to have a bunch of cool looking themes to choose from.  
+Especially when you have the desire to scream out loudly, when you throw a glance at it.
+But as we all know, taste is different. So we decided to have a bunch of cool-looking themes you can choose from.  
 
-### Where can i choose a theme?
+### How can I choose a theme?
 
-If you have read the previous Page of this Documentation you should know that you can find the themeswitch button in the header section of the panel. Its Icon looks like a little color pallette.  
-If you click on it you will be prompted with a Dialog that looks just like that:
+If you have read the previous page of this documentation, you should know that you can find the themeswitch button in the header section of the panel. Its icon looks like a little colour palette.  
+If you click on it, you will be prompted with a dialog that looks just like the following:
 
 ![Themes](/img/userdocs/twasi-panel/themes/themeswitcher.png)
 
-As you can see you can also Use your Twitch Banner as the background of the Header Section of your Twasi Panel.  
+As you can see, you might also use your Twitch banner as the background of the header section of your Twasi panel.  
 
-Yes. There is a Windows 95 Theme. •ᴗ•
+And yes, there is also a Windows 95 theme. •ᴗ•
