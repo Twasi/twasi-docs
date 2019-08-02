@@ -6,11 +6,11 @@ sidebar_label: Plugin commands
 
 There are several ways to implement commands into your plugin:
 
-> Please keep in mind that your plugin will not receive any command it has not registered in it's plugin.yml file.
+> Please keep in mind that your plugin will not receive any command that it has not registered in it's plugin.yml file.
 
 ## The onCommand method (recommended for static commands)
 
-The most basic way is to override the onCommand method in your TwasiUserPlugin class (Take a look [here](/docs/twasi-plugin) if you don't know about the TwasiUserPlugin class).
+The most basic way is to override the onCommand method in your TwasiUserPlugin class. (Take a look [here](/docs/twasi-plugin) if you don't know about the TwasiUserPlugin class).
 
 ```java
 public class MyAmazingUserPlugin extends TwasiUserPlugin {
@@ -46,7 +46,7 @@ public class MyAmazingUserPlugin extends TwasiUserPlugin {
 
 ## Controller-driven commands
 
-It's much cleaner to create a controller class for every command that you register. This way you keep your code clean and separate everything into classes.
+It's much cleaner to create a controller class for every command that you register. In this way you keep your code clean and separate everything into classes.
 
 > If your plugin has multiple commands, you should create a new package inside of your base package called "commands" or something similar containing all of your command controller classes.
 
@@ -54,9 +54,9 @@ Your command controller will be instantiated once when you register it in your T
 
 ### The TwasiPluginCommand-class
 
-Using the TwasiPluginCommand class is recommended for simple and more complex commands. You should be fine with it in most cases. If your command has multiple subcommands you should take a look at the StructuredPluginCommand-class.
+Using the TwasiPluginCommand class is recommended for simple and more complex commands. You should be fine with it in most cases. If your command has multiple subcommands, you should take a look at the StructuredPluginCommand-class.
 
-To get started add a new class to your project and make it extend the **TwasiPluginCommand**-class:
+To get started, add a new class to your project and make it extend the **TwasiPluginCommand**-class:
 
 ```java
 package de.merlinw.commands;
@@ -91,7 +91,7 @@ The *getCommandName()* function has to be overridden too. Let it return the name
 
 > The command name should not contain the command prefix (which is '!' by default).
 
-The *execute(TwasiCustomCommandEvent event)* function is your main execution function that will always be called when someone executes your command. The returned boolean defines whether the command was successfully executed or not. If the command ran successfully the command cooldown - if specified - is applied to the user who executed the command.
+The *execute(TwasiCustomCommandEvent event)* function is your main execution function that will always be called when someone executes your command. The returned boolean defines whether the command was successfully executed or not. If the command ran successfully, the command cooldown - if specified - is applied to the user who executed the command.
 
 #### Setting up permissions
 
@@ -111,17 +111,17 @@ This is **not** supported yet. It will be supported in the future. Promised!
 
 **Timers**
 
-Twasi supports timers. Timers are commands that are automatically executes in a given interval while the channel is live. If your command should be available as timer override the *allowsTimer()* function and make it return true.
+Twasi supports timers. Timers are commands that are automatically executed in a given interval while the channel is live. If your command should be available as timer, override the *allowsTimer()* function and make it return true.
 
 > This is only useful for non-functional commands. For example the **!hosts** command of the utitlies plugin has timers enabled.
 
 **Listing**
 
-If your command should not be listed when someone executes **!commands** in chat override the *allowsListing()* function and make it return false.
+If your command should not be listed when someone executes **!commands** in chat, override the *allowsListing()* function and make it return false.
 
 #### Registering the controller
 
-To register your controller just call this function from your TwasiUserPlugin-class (inside of the constructor for example) for each of your commands:
+To register your controller, just call this function from your TwasiUserPlugin-class (inside of the constructor for example) for each of your commands:
 
 ```java
     public ExampleUserPlugin() {
@@ -130,7 +130,7 @@ To register your controller just call this function from your TwasiUserPlugin-cl
     }
 ```
 
-If you changed the constructor signature of your command controller class the syntax above will throw an error. You can use this syntax instead:
+If you changed the constructor signature of your command controller class, the syntax above will throw an error. You can use this syntax instead:
 
 ```java
     registerCommand(new ExampleCommand(this, otherParameters));
@@ -138,11 +138,11 @@ If you changed the constructor signature of your command controller class the sy
 
 ### The StructuredPluginCommand-class
 
-The more subcommands your command has ("!command **add**" and "!command **remove**" for example), the more confusing your code becomes. To keep things as clean and readable as possible we introduced the StructuredPluginCommand into our Plugin-Framework.
+The more subcommands your command has ("!command **add**" and "!command **remove**" for example), the more confusing your code becomes. To keep things as clean and readable as possible, we introduced the StructuredPluginCommand into our Plugin-Framework.
 
-It works quite similar to the TwasiPluginCommand class but you can specify a bunch of subcommands that Twasi will automatically handle as if they were normal commands. This way you have one controller for each subcommand and do not need tons of if-elses or switch cases.
+It works quite similar to the TwasiPluginCommand class but you can specify a bunch of subcommands that Twasi will automatically handle as if they were normal commands. In this way you have one controller for each subcommand and do not need tons of if-elses or switch cases.
 
-The StructuredPluginCommand is also multidimensional so you can specify subcommands for your subcommands what makes things a lot easier when you need to provide a complex command structure.
+The StructuredPluginCommand is also multidimensional, so you can specify subcommands for your subcommands what makes things a lot easier when you need to provide a complex command structure.
 
 You can start by creating a class extending StructuredPluginCommand:
 
@@ -182,7 +182,7 @@ Since the *StructuredPluginCommand*-class extends *TwasiPluginCommand*, all of t
 
 #### Adding subcommands
 
-To add some subcommands to your controller you need to return a SubCommandCollection on the *getSubCommands()* function.
+To add some subcommands to your controller, you need to return a SubCommandCollection on the *getSubCommands()* function.
 
 **First subcommand**
 
@@ -264,7 +264,7 @@ Incoming commands that have an invalid subcommand will be handled by the parent 
 
 > You will learn about the translation renderer on the next page.
 
-If you don't override the *handle* function it will automatically render and return the translation key '*command-name*.syntax'.
+If you don't override the *handle* function, it will automatically render and return the translation key '*command-name*.syntax'.
 
 This also works for subcommands. If the example command had a subcommand called 'add', it renders and returns the translation key 'example.add.syntax' by default.
 
