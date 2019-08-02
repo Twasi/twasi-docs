@@ -8,11 +8,11 @@ Adding dynamic variables to your plugin is very easy! The best way to explain ho
 
 ## Creating a variable controller-class
 
-We are going to add a variable that returns the current time. We also use an argument to allow the user to specify a custom formatting.
+We are going to add a variable that returns the current time. We will also use an argument to allow the user to specify a custom formatting.
 
 Let's get started creating a new class called *TimeVariable*.
 
-> If you have multiple variables it's a good practise to put them into a package called "variables" or something similar to keep everything cleaned up. 
+> If you have multiple variables, it's a good practise to put them into a package called "variables" or something similar to keep everything cleaned up. 
 
 ```java
 package de.merlinw.variables;
@@ -51,7 +51,7 @@ There are two very important functions that you need to override:
   - 'String[] params' contains all arguments/parameters that were specified in the brackets at the end of the variable name (will be empty if there are no brackets at all).
   - 'TwasiMessage message' is the TwasiMessage we currently reply to.
 
-- The second one is the *getNames*-function that returns every name the variable should have. The first string in the returned list the the main name of your variable that will be shown in variable lists. All other strings are aliases that can be used too but won't be listed.
+- The second one is the *getNames*-function that returns every name the variable should have. The first string in the returned list is the main name of your variable that will be shown in variable lists. All other strings are aliases that can be used too but won't be listed.
 
 Now we want to add some logic to our *process*-function:
 
@@ -78,7 +78,7 @@ If a parameter is specified, the date parser will use it instead of 'HH:mm'.
 
 ## Error handling
 
-In most cases you don't need to care about error handling at all. If your *process*-function throws an exception Twasi will automatically resolve the variable with 'ERROR'. If the exception is an *ArrayIndexOutOfBoundsException* Twasi will return 'INSUFFICIENT_PARAMETERS'.
+In most cases you don't need to care about error handling at all. If your *process*-function throws an exception, Twasi will automatically resolve the variable with 'ERROR'. If the exception is an *ArrayIndexOutOfBoundsException* Twasi will return 'INSUFFICIENT_PARAMETERS'.
 
 Of course you can implement a custom error handling to provide more useful error-messages:
 
@@ -110,7 +110,7 @@ The last step is to register the variable-controller just like the commands in t
     }
 ```
 
-If you changed the signature of your Variable-controller-classes constructor the syntax above will throw an error. You can use this syntax instead:
+If you changed the signature of your Variable-controller-classes constructor, the syntax above will throw an error. You can use this syntax instead:
 
 ```java
     registerVariable(new TimeVariable(this, otherParameters));

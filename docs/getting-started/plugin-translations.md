@@ -4,7 +4,7 @@ title: Adding translations to a Twasi-Plugin
 sidebar_label: Plugin translations
 ---
 
-Twasi-Plugins can (and should) be multilingual. That's why we introduced a translation system into the Plugin-Framework.
+Twasi-Plugins can (and should) be multilingual. That's why we introduced a translation system into the plugin-framework.
 
 ## The TwasiTranslation (old system)
 
@@ -37,7 +37,7 @@ And in code:
     }
 ```
 
-This works fine in most cases but languages can be very different in their structure. This system enforces the same sequence of parameters across all languages what can cause ugly sentences. Also the translations are not very readable.
+This works fine in most cases but languages can be very different in their structure. This system enforces the same sequence of parameters across all languages which can cause ugly sentences. Also the translations are not very readable.
 
 This is why we created the TranslationRenderer 🙌
 
@@ -106,7 +106,7 @@ The TranslationRenderer supports object mapping. That means that we could bind a
 
 This works with public functions and public fields. It also works on multiple levels so you could render something like {object.subObject.subSubObject}.
 
-The TranslationRenderer is also kinda smart resolving those bindings. You don't have to worry about upper- or lowercase and you can ignore the function prefixes 'get', 'is' and 'has'. All of this is possible thanks to Java Reflections ｡◕‿◕｡
+The TranslationRenderer is also kinda smart resolving those bindings. You don't have to worry about upper- or lowercase and also you can ignore the function prefixes 'get', 'is' and 'has'. All of this is possible thanks to Java Reflections ｡◕‿◕｡
 
 #### Example
 
@@ -153,7 +153,7 @@ The TranslationRenderer supports nesting bindings. The inner bindings will alway
 {sender.{field}}
 ```
 
-If there was a binding called 'field' with the value 'userName' the renderer would first parse {field}:
+If there was a binding called 'field' with the value 'userName', the renderer would first parse {field}:
 
 ```
 {sender.userName}
@@ -165,7 +165,7 @@ This can be done on multiple levels without limitations.
 
 ### Random translations
 
-If your plugin should return a random sentence you can declare your syntax key multiple times and call the *renderRandom(String key)*-function.
+If your plugin should return a random sentence, you can declare your syntax key multiple times and call the *renderRandom(String key)*-function.
 
 #### Example
 
@@ -195,7 +195,7 @@ And in code:
 
 No matter if you use the old or the new system, the EN_GB.lang file is always the fallback language file that will be used if either the used key is not available in the requested language or the language file doesn't exist at all.
 
-This is why all plugins should contain a complete english translation.
+This is why all plugins should contain a complete English translation.
 
 ## Default translation keys
 
@@ -207,9 +207,9 @@ To localize your plugin information you can use the following translation keys:
 
 | key | description |
 | --- | --- |
-| plugin.name | The plugin name that is shown in the plugin store of Twaso-Panel. |
-| plugin.description | The plugin description that is shown in the plugin store of Twaso-Panel. |
-| plugin.helptext | The plugin helptext that is shown in the plugin store of Twaso-Panel. |
+| plugin.name | The plugin name that is shown in the plugin store of Twasi-Panel. |
+| plugin.description | The plugin description that is shown in the plugin store of Twasi-Panel. |
+| plugin.helptext | The plugin helptext that is shown in the plugin store of Twasi-Panel. |
 
 ### Plugin permission descriptions
 
