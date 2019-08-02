@@ -27,6 +27,7 @@
       "users/setup/migration"
     ],
     "Twasi Panel": [
+      "users/twasi-panel/panel-structure",
       "users/twasi-panel/panel-setup"
     ]
   }
