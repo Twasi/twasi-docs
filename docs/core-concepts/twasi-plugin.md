@@ -3,17 +3,17 @@ id: twasi-plugin
 title: The Twasi-Plugin
 ---
 
-Twasi itself does not provide many features to use in the Twitch chat. Instead it loads plugins that contain these features bundled in a .jar file.
+Twasi itself does not provide many features to use in the Twitch chat. Instead of that it loads plugins that contain these features bundled in a .jar file.
 
-## The Twasi-Plugin-Framework
+## The Twasi-plugin-framework
 
-Twasi-Core contains the Twasi-Plugin-Framework. This is a Java framework for building Twasi-Features as easy as possible. You can include it using the Java dependency injection system "Maven" since Twasi Core is deployed on our [public Maven Artifactory](https://artifactory.twasi.net).
+Twasi-Core contains the Twasi-plugin-framework. This is a Java framework for building Twasi-features as easy as possible. You can include it using the Java dependency injection system "Maven", since Twasi Core is deployed on our [public Maven Artifactory](https://artifactory.twasi.net).
 
-## What does a Twasi-Plugin consist of?
+## What does a Twasi-plugin consist of?
 
 ### The TwasiPlugin class
 
-Every Twasi-Plugin has a main class that is loaded by the Twasi core. This class needs to extend the "TwasiPlugin" class of Twasi core. It is the main interface for interacting with the core.
+Every Twasi-plugin has a main class that is loaded by the Twasi Core. This class needs to extend the "TwasiPlugin" class of Twasi core. It is the main interface for interacting with the core.
 
 It consists of the following methods and functions that can be overridden:
 
@@ -27,7 +27,7 @@ It consists of the following methods and functions that can be overridden:
 
 ### The TwasiUserPlugin class
 
-The *TwasiPlugin* class is instantiated once when the plugin is loaded. It has a function that must be overridden called *getUserPluginClass()* that returns a class extending the *TwasiUserPlugin* class. This class will now be instantiated for each Twasi-User who has the plugin installed. The idea behind this is simplicity for the developers. You can temporarily store information and context that belongs to a channel in class variables of your *UserPlugin*-class and do not have to put these information in Maps or something similar.
+The *TwasiPlugin* class is instantiated once the plugin is loaded. It has a function that must be overridden called *getUserPluginClass()* that returns a class extending the *TwasiUserPlugin* class. This class will now be instantiated for each Twasi-user who has the plugin installed. The idea behind this is simplicity for the developers. You can temporarily store information and context that belongs to a channel in class variables of your *UserPlugin*-class and do not have to put these information in maps or something similar.
 
 It consists of the following methods and functions that can be overridden:
 
@@ -44,11 +44,11 @@ It consists of the following methods and functions that can be overridden:
 
 > Overriding the onCommand method will disable the command registration system which is highly recommended to use due to it's flexibility.
 
-> If you want to use the onMessage method you need to set "messageHandler" to true in your plugin.yml file.
+> If you want to use the onMessage method, you need to set "messageHandler" to true in your plugin.yml file.
 
 ### The plugin.yml file
 
-To make Twasi understand your plugin you need to put a plugin.yml file into your resource folder (or directly into your jar-file). This file contains basic information about the plugin and tells the core which commands, permissions and API-endpoints are available. We will come to these things later.
+To make Twasi understand your plugin, you need to put a plugin.yml file into your resource folder (or directly into your jar-file). This file contains basic information about the plugin and tells the core which commands, permissions and API-endpoints are available. But we will come to these things later.
 
 #### Example plugin.yml
 This is an example of how a simple plugin.yml file could look like:
@@ -86,11 +86,11 @@ The following properties are available:
  | permissions | string[] | A list of all permission keys the plugin uses. | no | 
  | dependencies | string[] | Other Twasi-Plugins that the plugin depends on.|no |
 
- > While the name of the plugin is required (because it's the "id" of the plugin) the description and the helptext are not. The reason is that you can provide these localized in the translation files of the plugin later.
+ > While the name of the plugin is required (because it's the "id" of the plugin), the description and the helptext are not. The reason is that you can provide these localized in the translation files of the plugin later.
 
  #### Behaviour of *hidden* and *autoInstall*:
  
- > The properties *hidden* and *autoInstall* should not be used in most cases. They were implemented to create plugins that are always installed like the Debug-Plugin or the StreamTracker.
+ > The properties *hidden* and *autoInstall* should not be used in most cases. They were implemented to create plugins that are always installed like the debug-plugin or the StreamTracker.
 
  |hidden|autoInstall|behaviour|
   | --- | --- | --- |
@@ -100,13 +100,13 @@ The following properties are available:
 
 ### Plugin configurations
 
-If your plugin needs a configuration file you can create a template class with all of the settings that should be available. Twasi will automatically create the file for you based on the template you specify. Then you can load this file in the code with one single line of code.
+If your plugin needs a configuration file, you can create a template class with all of the settings that should be available. Twasi will automatically create the file for you based on the template you specify. Afterwards you can load this file in the code with one single line of code.
 
-> **Possible use case:** Your plugin integrates with a third party API and needs API credentials. Instead of hardcoding them you can create a configuration file where the instance hoster can put them in.
+> **Possible use case:** Your plugin integrates with a third party API and needs API credentials. Instead of hardcoding them, you can create a configuration file where the instance hoster can put them in.
 
 ### Translations
 
-Twasi is not restricted to one language. At the moment we support the German and the English language. To support multiple languages Twasi uses translation files (*country-code*.lang) stored in the plugin's resource folder under /translations.
+Twasi is not restricted to one language. At the moment we support the German and the English language. To support multiple languages, Twasi uses translation files (*country-code*.lang) stored in the plugin's resource folder under /translations.
 
 Currently supported languages:
  | code | country | 
@@ -124,7 +124,7 @@ command.output=Hey {sender.displayName}!
 
 > You will learn about parameter binding like {sender.displayName} [here](/docs/translations).
 
-translations keys can be chosen by the plugin developer but should be separated by dots.
+Translations keys can be chosen by the plugin developer but should be separated by dots.
 
 There are default translation keys that should always be set:
 
