@@ -3,37 +3,37 @@ id: setup-process
 title: Setup Process
 ---
 
-## Why do i have to Setup my Account?
+## Why do I have to set up my account?
 
 We try to make everything and every bit of Twasi as easy and accessible as possible.  
-To provide such, we collect data like your Avatar, your Twitch Banner and some additional Data throughout your first Visit of the Page.  
-In the Setup Process we will collect Data about your personal preferences like i.e. what plugins you wish to install.
+To provide such, we collect data like your avatar, your Twitch banner and some further data throughout your first visit of the page.  
+In the setup process we will collect data about your personal preferences like what plugins you wish to install.
 
-## How does the Setup Process work?
+## How does the setup process work?
 
 ### Authorization
 
-At the beginning you have to authorize Twasi with your Twitch Account to grant us access to collect data and execute commands in your Twitch Channel.
+At the beginning you have to authorize Twasi with your Twitch account to grant us access to collect data and execute commands in your Twitch channel.
 
-### First Step
+### First step
 
-The First Step in the Setup, after you authorized Twasi is the Page where you enter your personal Closed Beta Key to gain access to the Twasi Panel.  
-Here you have to accept our Terms of Condition in order to proceed the Setup process.
+The first step in the setup, after you have authorized Twasi, is the page where you enter your personal Closed Beta Key to gain access to the Twasi panel.  
+Thereupon you have to accept our Terms and Conditions in order to proceed with the setup process.
 
-> After you successfully entered the Beta Key the Setup is basically done.  
-All the following Steps are optional
+> After you successfully entered the Beta Key the setup is basically done.  
+All following steps are optional.
 
 ![Setup Step One](/img/userdocs/setup/setup-process/setup_1.png)
 
-### Second Step
+### Second step
 
-In the Second Stage of the Setup you can choose from a List of Plugins to install for your personal preferences.  
-You can install and uninstall the plugins at any point of time via the Twasi Panel later on.
+In the second stage of the setup you can choose from a list of plugins to install for your personal preferences.  
+You can install and uninstall the plugins easily at any point of time via the Twasi panel later on.
 
 ![Setup Step Two](/img/userdocs/setup/setup-process/setup_2.png)
 
-### Third Step
+### Third step
 
-The Third and final Step shows a Welcome Message. The Setup is done and you can proceed to the Twasi Panel.
+The third and final step shows a welcome message. The setup is done and you can proceed to the Twasi panel.
 
 ![Setup Step Three](/img/userdocs/setup/setup-process/setup_3.png)
