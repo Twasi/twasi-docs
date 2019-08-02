@@ -10,7 +10,7 @@ This is the user section of this documentation. If you are searching for the dev
 
 to the official documentation of Twasi. This is the user section which is dedicated to the users of Twasi who need help at setting up the Bot or looking for the functionality of Features.
 
-## What is Twasi?
+## What the fuck is Twasi?
 
 Twasi is an open source chatbot for the video-livestreaming platform Twitch. It is developed in our free time and will always be free to use.
 
