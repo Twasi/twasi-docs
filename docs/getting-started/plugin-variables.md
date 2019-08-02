@@ -110,7 +110,7 @@ The last step is to register the variable-controller just like the commands in t
     }
 ```
 
-If you changed the signature of your Variable-controller-class the syntax above will throw an error. You can use this syntax instead:
+If you changed the signature of your Variable-controller-classes constructor the syntax above will throw an error. You can use this syntax instead:
 
 ```java
     registerVariable(new TimeVariable(this, otherParameters));

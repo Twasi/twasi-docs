@@ -106,7 +106,7 @@ The TranslationRenderer supports object mapping. That means that we could bind a
 
 This works with public functions and public fields. It also works on multiple levels so you could render something like {object.subObject.subSubObject}.
 
-The TranslationRenderer is also kinda smart resolving those bindings. You don't have to worry about upper- or lowercase and you can ignore function prefixes 'get', 'is' and 'has'. All of this is possible thanks to Java Reflections ｡◕‿◕｡
+The TranslationRenderer is also kinda smart resolving those bindings. You don't have to worry about upper- or lowercase and you can ignore the function prefixes 'get', 'is' and 'has'. All of this is possible thanks to Java Reflections ｡◕‿◕｡
 
 #### Example
 
