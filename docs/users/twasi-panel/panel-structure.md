@@ -5,34 +5,34 @@ title: Panel Structure
 
 ## Where to find what?
 
-On this Page you will find the arrangement of Elements and where to find what in the Twasi Panel.  
+On this page you will find details about the arrangement of elements and where to find what in the Twasi panel.  
 
 ## Basic Structure
 
-The Twasi Panel consists of three main segments. **The Sidebar**, **The Header** and **The Content Area**.
+The Twasi panel consists of three main segments. **The sidebar**, **the header** and **the content area**.
 
 ### The Sidebar
 
-The most important thing on a good working platform is provide a good way to navigate through the contents of the different Subpages.  
-For that purpose we use a dynamic Sidebar wich shows only the Pages you want to see and need.  
+The most important thing on a good working platform is to provide a good way to navigate through the contents of the different subpages.  
+For that purpose we use a dynamic sidebar which shows only the pages you want to see and need.  
 
-#### Thats awesome! how does that work?
+#### That's awesome! But how does that work?
 
-As you already know our Chatbot is modular. You can install and uninstall every Plugin that you want to use.  
-The Sidebar keeps track of what you have installed on your Account and only displays the matching Pages for i.e. the Commands Plugin.
+As you might already know, our chatbot is modular. You can install and uninstall every plugin that you want to use, respectively you don't want to use anymore.  
+The sidebar keeps track of what you have installed on your account and only displays the matching pages for - as an example - the commands plugin.
 
 ![Sidebar](/img/userdocs/twasi-panel/panel-structure/sidebar.png)
 
-### The Header
+### The header
 
-We use the Header Section of the Twasi Panel to display your Twitch Name, your Avatar and your Twasi Rank.  
-On the left hand side of the Header you can find three Buttons. The first of the three is used to change the language of the whole Panel.  
-The Second one is used to switch between a lot of custom designed Themes to choose from. The last is a function that will be implemented later on in the development of Twasi. It will be used to switch between Acounts you have access to or to give your mods the ability to access your panel and manage your bot.
+We use the header section of the Twasi panel to display your Twitch name, your avatar and your Twasi rank.  
+On the left hand side of the header you can find three buttons. The first of the three is used to change the language of the whole panel.  
+The second one is used to swap between a lot of custom designed themes to choose from. The last one is a function that will be implemented later on in the development of Twasi. It will be utilized to switch between accounts you have access to or to give your mods the ability to access your panel and to manage your bot.
 
 ![Header](/img/userdocs/twasi-panel/panel-structure/header.png)
 
-### The Content Area
+### The content area
 
-The Content Area displays all your Settings, Statistics and other cool Stuff to work with. It changes its Contents by Navigating through the Sidebar.
+The content area displays all your settings, statistics and other cool stuff to work with. It changes its contents by navigating through the sidebar.
 
 ![Contents](/img/userdocs/twasi-panel/panel-structure/contents.png)
