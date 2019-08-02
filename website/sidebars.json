@@ -21,14 +21,14 @@
     "Welcome": [
       "users/home"
     ],
-    "Setup Progress": [
-      "users/setup/setup-process",
-      "users/setup/referral-programm",
-      "users/setup/migration"
+    "Setup": [
+      "users/setup/setup-process"
     ],
     "Twasi Panel": [
       "users/twasi-panel/panel-structure",
-      "users/twasi-panel/panel-setup"
+      "users/twasi-panel/themes",
+      "users/twasi-panel/bot-status",
+      "users/twasi-panel/profile-page"
     ]
   }
 }

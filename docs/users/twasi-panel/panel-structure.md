@@ -9,6 +9,8 @@ On this Page you will find the arrangement of Elements and where to find what in
 
 ## Basic Structure
 
+The Twasi Panel consists of three main segments. **The Sidebar**, **The Header** and **The Content Area**.
+
 ### The Sidebar
 
 The most important thing on a good working platform is provide a good way to navigate through the contents of the different Subpages.  
@@ -29,8 +31,8 @@ The Second one is used to switch between a lot of custom designed Themes to choo
 
 ![Header](/img/userdocs/twasi-panel/panel-structure/header.png)
 
-### The Contents
+### The Content Area
 
-Lorem ipsum twasi is the coolest bot dolores
+The Content Area displays all your Settings, Statistics and other cool Stuff to work with. It changes its Contents by Navigating through the Sidebar.
 
 ![Contents](/img/userdocs/twasi-panel/panel-structure/contents.png)

@@ -20,6 +20,9 @@ At the beginning you have to authorize Twasi with your Twitch Account to grant T
 The First Step in the Setup after you authorized Twasi is the Page where you enter your personal Closed Beta Key to gain access to the Twasi Panel.  
 Here you have to have accept our Terms of Condition in order to proceed the Setup process.
 
+> After you successfully entered the Beta Key the Setup is basically done.  
+All the following Steps are optional
+
 ![Setup Step One](/img/userdocs/setup/setup-process/setup_1.png)
 
 ### Second Step
