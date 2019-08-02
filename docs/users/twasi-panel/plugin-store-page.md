@@ -13,7 +13,7 @@ It provides Plugins written by our Developer Team and by other Developers who us
 Everyone can write Twasi Plugins! We provide a whole Documentation just for that purpose.  
 If you are interested in writing your own Twasi Plugins please take a deeper look into our [Developers Documentation](/docs/home).
 
-### How to i install / uninstall Plugins?
+### How to install / uninstall Plugins?
 
 You can install any Plugin you need by clicking the "*install*" Button. To uninstall a Plugin just click the "*uninstall*" Button.  
 If you install a Plugin its functionallity automatically applied to your Instance of Twasi.

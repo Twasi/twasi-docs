@@ -7,18 +7,18 @@ title: Setup Process
 
 We try to make everything and every bit of Twasi as easy and accessible as possible.  
 To provide such, we collect data like your Avatar, your Twitch Banner and some additional Data throughout your first Visit of the Page.  
-In the Setup Process we collect Data about your personal preferences like i.e. what plugins you wish to install.
+In the Setup Process we will collect Data about your personal preferences like i.e. what plugins you wish to install.
 
 ## How does the Setup Process work?
 
 ### Authorization
 
-At the beginning you have to authorize Twasi with your Twitch Account to grant Twasi access to collect data and execute commands in your Twitch Channel.
+At the beginning you have to authorize Twasi with your Twitch Account to grant us access to collect data and execute commands in your Twitch Channel.
 
 ### First Step
 
-The First Step in the Setup after you authorized Twasi is the Page where you enter your personal Closed Beta Key to gain access to the Twasi Panel.  
-Here you have to have accept our Terms of Condition in order to proceed the Setup process.
+The First Step in the Setup, after you authorized Twasi is the Page where you enter your personal Closed Beta Key to gain access to the Twasi Panel.  
+Here you have to accept our Terms of Condition in order to proceed the Setup process.
 
 > After you successfully entered the Beta Key the Setup is basically done.  
 All the following Steps are optional
