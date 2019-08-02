@@ -28,7 +28,8 @@
       "users/twasi-panel/panel-structure",
       "users/twasi-panel/themes",
       "users/twasi-panel/bot-status",
-      "users/twasi-panel/profile-page"
+      "users/twasi-panel/profile-page",
+      "users/twasi-panel/plugin-store-page"
     ]
   }
 }
