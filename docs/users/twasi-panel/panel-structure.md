@@ -13,7 +13,7 @@ The Twasi panel consists of three main segments. **The sidebar**, **the header**
 
 ### The Sidebar
 
-The most important thing on a good working platform is to provide a good way to navigate through the contents of the different subpages.  
+The most important thing on a good working platform is to provide a convenient way to navigate through the contents of the different subpages.  
 For that purpose we use a dynamic sidebar which shows only the pages you want to see and need.  
 
 #### That's awesome! But how does that work?

@@ -28,7 +28,7 @@ Thereupon, developers can use functions of the connected accounts to implement n
 
 ### Badges
 
-The "*Badges*" are used to show others how special you are. We release badges after certain events or for certain achievements.
+The "*Badges*" are there to show others how special you are. We release badges after certain events or for certain achievements.
 
 > This feature is not usable at the moment.
 

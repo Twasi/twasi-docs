@@ -15,7 +15,7 @@ If you are interested in writing your own Twasi plugins, please have a deeper lo
 
 ### How can I install / uninstall plugins?
 
-You can install any plugin you want to have by clicking the "*install*" Button. To uninstall a plugin that don't want to use any longer, just click the "*uninstall*" button.  
+You can install any plugin you want to have by clicking the "*install*" Button. To uninstall a plugin you don't want to use any longer, just click the "*uninstall*" button.  
 If you install a plugin, its functionality will be automatically applied to your instance of Twasi.
 
 ![Install Button](/img/userdocs/twasi-panel/plugin-store/install.png)
