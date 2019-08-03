@@ -14,7 +14,7 @@ Twasi uses the modularity of Java. This documentation requires basic to enhanced
 
 ## What is Twasi?
 
-Twasi is an open source chatbot for the video-livestreaming platform Twitch. It is developed in our free time and will always be free to use. We offer a framework that can be used to develop custom functions for the bot very easily. If you want to learn more you're at the right place!
+Twasi is an open source chatbot for the video-livestreaming platform Twitch. It is developed in our free time and will always be free to use. We offer a framework that can be used to develop custom functions for the bot very easily. If you want to learn more you're in the right place!
 
 ### Twasi-Core
 
@@ -38,4 +38,4 @@ Twasi-Panel is the frontend application of Twasi. It is using the react framewor
 
 ## History
 
-The Twasi-Project was started in Juny 2016 by Blechkelle aka. Jeff after the "Twats"-Chatbot developed by MrKrisKrisu was shut down. After a closed beta Twasi's first version started an open beta version that failed due to too many users using the bot. Later Twasi was rewritten as Twasi-Core built by a modular system to offer more flexibility.
+The Twasi-Project was started in June 2016 by Blechkelle aka. Jeff after the "Twats"-Chatbot developed by MrKrisKrisu was shut down. After a closed beta, Twasi's first version started an open beta version that failed due to too many users using the bot. Later Twasi was rewritten as Twasi-Core, built by a modular system to offer more flexibility.
