@@ -12,7 +12,7 @@ We are going to add a variable that returns the current time. We will also use a
 
 Let's get started creating a new class called *TimeVariable*.
 
-> If you have multiple variables, it's a good practise to put them into a package called "variables" or something similar to keep everything cleaned up. 
+> If you have multiple variables, it's a good practice to put them into a package called "variables" or something similar to keep everything cleaned up. 
 
 ```java
 package de.merlinw.variables;
@@ -51,7 +51,7 @@ There are two very important functions that you need to override:
   - 'String[] params' contains all arguments/parameters that were specified in the brackets at the end of the variable name (will be empty if there are no brackets at all).
   - 'TwasiMessage message' is the TwasiMessage we currently reply to.
 
-- The second one is the *getNames*-function that returns every name the variable should have. The first string in the returned list is the main name of your variable that will be shown in variable lists. All other strings are aliases that can be used too but won't be listed.
+- The second one is the *getNames*-function that returns every name the variable should have. The first string in the returned list is the main name of your variable that will be shown in variable lists. All other strings are aliases that can be used too, but won't be listed.
 
 Now we want to add some logic to our *process*-function:
 

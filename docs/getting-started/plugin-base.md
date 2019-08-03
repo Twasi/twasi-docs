@@ -16,9 +16,9 @@ We are going to create an example plugin without further functionality. On the n
 
 First you need to create a new Maven project. I use IntelliJ IDEA for that. If you want to use another IDE, please find out how to create a Maven project with it on the internet.
 
-> Maven is a dependency injection system for Java. It will help you adding the Twasi-Plugin-Framework to your project. Please don't be deterred if you haven't used Maven yet. It's quite simple to get started and simplifies your dependency management.
+> Maven is a dependency injection system for Java. It will help you by adding the Twasi-Plugin-Framework to your project. Please don't be deterred if you haven't used Maven yet. It's quite simple to get started and simplifies your dependency management.
 
-To do that, click on "Create new Project", choose *Maven* on the left und select (or configure) your **JDK 1.8**. After that you need to choose a package and an ArtifactID. Please use your own package name (what usually consists of a domain name that you own backwards: *merlinw.de* > de.merlinw, twasi.net > net.twasi). The ArtifactID is your plugin's / project's name.
+To do that, click on "Create new Project", choose *Maven* on the left and select (or configure) your **JDK 1.8**. After that you need to choose a package and an ArtifactID. Please use your own package name (which usually consists of a domain name that you own backwards: *merlinw.de* > de.merlinw, twasi.net > net.twasi). The ArtifactID is your plugin's / project's name.
 
 Maven will now create this file structure for you:
 
@@ -151,7 +151,7 @@ public class ExamplePlugin extends TwasiPlugin {
 
 ## Creating the plugin.yml file
 
-Now you need to tell Twasi-Core where your *TwasiPlugin*-class is. To do that and to give the core more information about your plugin (like it's name, the version etc.), create a new file called "plugin.yml" in the "/src/main/resources" directory containing the following properties:
+Now you need to tell Twasi-Core where your *TwasiPlugin*-class is located. To do that and to give the core more information about your plugin (like it's name, the version etc.), create a new file called "plugin.yml" in the "/src/main/resources" directory containing the following properties:
 
 ```yml
 name: "ExamplePlugin" # This should be unique
@@ -222,7 +222,7 @@ public class MyPluginConfiguration {
 
 > To test your plugin in a local environment, you need to set up a Twasi-Core instance, if you haven't done that yet. You can learn how to do that [here](/docs/getting-started/local-setup).
 
-Your plugin base is finished and Twasi-Core should be able to load it. All you need to do now is to build it to get a .jar file. In IntelliJ, you can create a runtime-configuration for that. Just click "Add configuration" at the top bar of the IDE, click the add-button, choose Maven and enter "clean compile package" into the command-line field. Save the configuration and click run. Now Maven compiles your plugin and puts the jar file into a new folder called "target".
+Your plugin base is finished and Twasi-Core should be able to load it. All you need to do now is to build it to get a .jar file. In IntelliJ, you can create a runtime-configuration for that. Just click "Add configuration" at the top bar of the IDE, click the add-button, choose Maven and enter "clean compile package" into the command-line field. Save the configuration and click run. Now Maven compiles your plugin and puts the .jar file into a new folder called "target".
 
 If you don't use IntelliJ, please install Maven globally on your system. You can find a tutorial for that [here](https://www.baeldung.com/install-maven-on-windows-linux-mac).
 

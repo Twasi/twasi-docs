@@ -8,7 +8,7 @@ Twasi-Plugins can (and should) be multilingual. That's why we introduced a trans
 
 ## The TwasiTranslation (old system)
 
-The first version of our translation system used the beneftits of the *String.format()* function that ships with the JDK:
+The first version of our translation system used the benefits of the *String.format()* function that ships with the JDK:
 
 **EN_GB.lang**:
 ```
@@ -37,7 +37,7 @@ And in code:
     }
 ```
 
-This works fine in most cases but languages can be very different in their structure. This system enforces the same sequence of parameters across all languages which can cause ugly sentences. Also the translations are not very readable.
+This works fine in most cases, but languages can be very different in their structure. This system enforces the same sequence of parameters across all languages, which can cause ugly sentences. Also the translations are not very readable.
 
 This is why we created the TranslationRenderer 🙌
 
@@ -127,7 +127,7 @@ Will be documented soon. Promised!
 
 ### Default bindings
 
-You get the renderer directly from the incoming command event. This allows Twasi to bind variables and objects in background that are used very often.
+You get the renderer directly from the incoming command event. This allows Twasi to bind variables and objects that are used very often, in the background.
 
 The following default bindings are available:
 
@@ -215,7 +215,7 @@ To localize your plugin information you can use the following translation keys:
 
 > This is not implemented yet but will be implemented soon!
 
-It's not always clear what permissions a permission key *exactly* grants. You should give all of your translation keys a clear name to make everyone understand it. These should also be localized so we add them to our translation files with a leading '§'.
+It's not always clear which permissions a permission key *exactly* grants. You should give all of your translation keys a clear name to make everyone understand them. These should also be localized, so we add them to our translation files with a leading '§'.
 
 #### Example
 
@@ -225,7 +225,7 @@ If you want to describe the following permission key:
 commands.add
 ```
 
-your translation should looks like this:
+your translation should look like this:
 
 ```
 §commands.add=Add new commands to the channel
