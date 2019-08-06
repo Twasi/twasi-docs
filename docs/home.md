@@ -18,11 +18,11 @@ Twasi is an open source chatbot for the video-livestreaming platform Twitch. It 
 
 ### Twasi-Core
 
-This is the main application of Twasi. It handles the connection to Twitch, loads the plugins that contain the features of Twasi and connects everything together (including Twasi-Panel and the database). You could say Twasi-Core is the heart of Twasi.
+This is the main application of Twasi. It handles the connection to Twitch, loads the plugins that contain the features of Twasi and connects everything together (including Twasi-Panel and the database). Twasi-Core can be seen as the foundation of Twasi.
 
 ### Twasi Plugins
 
-Since Twasi is completely modular, the functionality doesn't ship with the application itself (Twasi-Core) but with plugins. In this documentation you will learn about Twasi's core concepts and how to write Twasi Plugins and Dependencies in a minimum of time using the Twasi-Plugin-Framework which ships with Twasi-Core.
+Twasi is a completely modular application. The functionality doesn't provide with the application itself (Twasi-Core), you need the corresponding plugins. This documentation will show you, how to use and create Twasi-plugins with correctly dependencies and using the Twasi-Plugin-Framework which included with Twasi-Core.
 
 #### Advantages of using a plugin system
 
@@ -39,3 +39,6 @@ Twasi-Panel is the frontend application of Twasi. It is using the react framewor
 ## History
 
 The Twasi-Project was started in June 2016 by Blechkelle aka. Jeff after the "Twats"-Chatbot developed by MrKrisKrisu was shut down. After a closed beta, Twasi's first version started an open beta version that failed due to too many users using the bot. Later Twasi was rewritten as Twasi-Core, built by a modular system to offer more flexibility.
+
+
+
