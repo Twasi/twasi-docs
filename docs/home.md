@@ -34,11 +34,8 @@ Twasi is a completely modular application. The functionality doesn't provide wit
 
 ### Twasi-Panel
 
-Twasi-Panel is the frontend application of Twasi. It is using the react framework maintained by Facebook to offer a modern and fast user interface. It runs in all modern browsers and does not require any installation.
+Twasi-Panel is the frontend application of Twasi. It is using the React framework maintained by Facebook to offer a modern and fast user interface. It runs in all modern browsers and does not require any installation.
 
 ## History
 
 The Twasi-Project was started in June 2016 by Blechkelle aka. Jeff after the "Twats"-Chatbot developed by MrKrisKrisu was shut down. After a closed beta, Twasi's first version started an open beta version that failed due to too many users using the bot. Later Twasi was rewritten as Twasi-Core, built by a modular system to offer more flexibility.
-
-
-
