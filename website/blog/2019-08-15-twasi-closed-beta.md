@@ -1,19 +1,9 @@
 ---
-title: Twasi-core exits the SNAPSHOT state!
+title: Twasi enters the Closed Beta!
 author: Twasi Team
 authorURL: https://twitter.com/TwasiNET
 authorImageURL: https://pbs.twimg.com/profile_images/1155689861724168192/9x3BpPWm_400x400.jpg
 ---
-
-## Twasi Closed Beta
-
-Twasi's closed beta will start soon. We worked hard on the core, the panel and the plugin-framework of Twasi and can proudly present, that Twasi and it's plugins are running stable and are very performant!
-
-Now we need to figure out how good Twasi works under heavier load before we can publish our bot to everyone. This is a big step for us!
-
-### Getting access to the beta
-
-We will hand out codes for our closed beta at the **Gamescom 2019** and also on **Twitter**! So if you're interested in our chatbot leave a follow on our [Twitter-account](https://twitter.com/TwasiNET)!
 
 ## Contributers
 
@@ -33,6 +23,20 @@ There were a lot of people involved in the project and we want to thank all of t
 
 If you want a shoutout in our next blog feel free to contribute with us on any of our repositories.  
 Do you see the beauty of open source? (ﾉ◕ヮ◕)ﾉ*:・ﾟ✧
+
+## Twasi Closed Beta
+
+Twasi's closed beta will start soon. We worked hard on the core, the panel and the plugin-framework of Twasi and can proudly present, that Twasi and it's plugins are running stable and are very performant!
+
+Now we need to figure out how good Twasi works under heavier load before we can publish our bot to everyone.
+Be aware of the fact that the closed beta is still a very early version of Twasi to test its performance and to implement new features.  
+We will not guarantee uptime or functionallity of the bot during this early state.
+
+This is a massive step for us!
+
+### Getting access to the beta
+
+We will hand out codes for our closed beta at the **Gamescom 2019** and also on **Twitter**! If you're interested in our chatbot leave a follow on our [Twitter-account](https://twitter.com/TwasiNET)!
 
 ## The Docs
 
