@@ -1,5 +1,6 @@
 ---
 id: panel-structure
+title: Struktur des Panels
 ---
 
 ## Wo finde ich was?
