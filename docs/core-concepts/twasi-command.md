@@ -67,7 +67,7 @@ To prevent overuse of a command, the controller class can specify a cooldown tha
 
 ### What does 'successfully executed' mean?
 
-**Example**: If you want to know how the **!wiki** command works, you just type in the command without any arguments. This means, that the command was **not** successfully executed since it only returns the commands syntax and doesn't really execute the command.
+**Example**: If you want to know how the **!wiki** command works, you just type in the command without any arguments. This means, that the command was **not** successfully executed, since it only returns the commands syntax and doesn't really execute the command.
 
 Developers can decide if a command was successful or not, using the controller class.
 

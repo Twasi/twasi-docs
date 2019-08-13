@@ -7,7 +7,7 @@ title: Setup Process
 
 We try to make everything and every bit of Twasi as easy and accessible as possible.  
 To provide such, we collect data like your avatar, your Twitch banner and some further data throughout your first visit of the page.  
-In the setup process we will collect data about your personal preferences like what plugins you wish to install.
+In the setup process we will collect data about your personal preferences like which plugins you wish to install.
 
 ## How does the setup process work?
 

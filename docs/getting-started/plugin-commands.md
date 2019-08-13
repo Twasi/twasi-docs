@@ -46,11 +46,11 @@ public class MyAmazingUserPlugin extends TwasiUserPlugin {
 
 ## Controller-driven commands
 
-It's much cleaner to create a controller class for every command that you register. In this way you keep your code clean and separate everything into classes.
+It's much cleaner to create a controller class for every command that you register. This way you keep your code clean and separate everything into classes.
 
-> If your plugin has multiple commands, you should create a new package inside of your base package called "commands" or something similar containing all of your command controller classes.
+> If your plugin has multiple commands, you should create a new package inside of your base package called "commands" or something similar, containing all of your command controller classes.
 
-Your command controller will be instantiated once when you register it in your TwasiUserPlugin class. This means that your controller class has one object for each installed channel so you can store context information across one channel in the class variables of it.
+Your command controller will be instantiated once when you register it in your TwasiUserPlugin class. This means that your controller class has one object for each installed channel so you can store context information across one channel in its class variables.
 
 ### The TwasiPluginCommand-class
 
@@ -85,7 +85,7 @@ public class ExampleCommand extends TwasiPluginCommand {
 }
 ```
 
-You need to have the same constructor as the super class. Otherwise you will run into an error when you try to register your command. Just leave it as is.
+You need to have the same constructor as the super class. Otherwise you will run into an error when you try to register your command. Just leave it as it is.
 
 The *getCommandName()* function has to be overridden too. Let it return the name of the command (one single word) the controller should react to.
 
@@ -101,7 +101,7 @@ This also works for TwasiSubCommands.
 
 #### Setting up a cooldown
 
-Commands have a default cooldown of one minute that is applied to the user and the command when the command was executed successfully. If you want to in-/decrease that cooldown, just override the *getCooldown()* function and let it return the desired duration.
+Commands have a default cooldown of one minute that is applied to the user and the command if the command was executed successfully. If you want to in-/decrease that cooldown, just override the *getCooldown()* function and let it return the desired duration.
 
 #### Setting up aliases
 
@@ -117,7 +117,7 @@ Twasi supports timers. Timers are commands that are automatically executed in a 
 
 **Listing**
 
-If your command should not be listed when someone executes **!commands** in chat, override the *allowsListing()* function and make it return false.
+Should your command not be listed when someone executes **!commands** in chat, override the *allowsListing()* function and make it return false.
 
 #### Registering the controller
 
@@ -140,9 +140,9 @@ If you changed the constructor signature of your command controller class, the s
 
 The more subcommands your command has ("!command **add**" and "!command **remove**" for example), the more confusing your code becomes. To keep things as clean and readable as possible, we introduced the StructuredPluginCommand into our Plugin-Framework.
 
-It works quite similar to the TwasiPluginCommand class but you can specify a bunch of subcommands that Twasi will automatically handle as if they were normal commands. In this way you have one controller for each subcommand and do not need tons of if-elses or switch cases.
+It works quite similar to the TwasiPluginCommand class but you can specify a bunch of subcommands that Twasi will automatically handle as if they were normal commands. In this way you have one controller for each subcommand and don't need tons of if-elses or switch cases.
 
-The StructuredPluginCommand is also multidimensional, so you can specify subcommands for your subcommands what makes things a lot easier when you need to provide a complex command structure.
+The StructuredPluginCommand is also multidimensional, so you can specify subcommands for your subcommands, which makes things a lot easier when you need to provide a complex command structure.
 
 You can start by creating a class extending StructuredPluginCommand:
 
@@ -178,7 +178,7 @@ public class ExampleStructuredCommand extends StructuredPluginCommand {
 }
 ```
 
-Since the *StructuredPluginCommand*-class extends *TwasiPluginCommand*, all of the functions are the same. The only difference is that the *execute* function is called *handle* in StructuredPluginCommands because the execute-function is working in background. You can find the available functions and methods [here](#setting-up-permissions).
+Since the *StructuredPluginCommand*-class extends *TwasiPluginCommand*, all of the functions are the same. The only difference is that the *execute* function is called *handle* in StructuredPluginCommands because the execute-function is working in the background. You can find the available functions and methods [here](#setting-up-permissions).
 
 #### Adding subcommands
 
@@ -266,7 +266,7 @@ Incoming commands that have an invalid subcommand will be handled by the parent 
 
 If you don't override the *handle* function, it will automatically render and return the translation key '*command-name*.syntax'.
 
-This also works for subcommands. If the example command had a subcommand called 'add', it renders and returns the translation key 'example.add.syntax' by default.
+This also works for subcommands. If the example command had a subcommand called 'add', it would render and return the translation key 'example.add.syntax' by default.
 
 ## Continue
 

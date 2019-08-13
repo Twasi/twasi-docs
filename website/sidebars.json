@@ -17,19 +17,34 @@
       "getting-started/plugin-permissions"
     ]
   },
-  "userdocs": {
+  "userdocs-en": {
     "Welcome": [
-      "users/home"
+      "users/en/home"
     ],
     "Setup": [
-      "users/setup/setup-process"
+      "users/en/setup/setup-process"
     ],
     "Twasi Panel": [
-      "users/twasi-panel/panel-structure",
-      "users/twasi-panel/themes",
-      "users/twasi-panel/bot-status",
-      "users/twasi-panel/profile-page",
-      "users/twasi-panel/plugin-store-page"
+      "users/en/twasi-panel/panel-structure",
+      "users/en/twasi-panel/themes",
+      "users/en/twasi-panel/bot-status",
+      "users/en/twasi-panel/profile-page",
+      "users/en/twasi-panel/plugin-store-page"
+    ]
+  },
+  "userdocs-de": {
+    "Willkommen": [
+      "users/de/home"
+    ],
+    "Installation": [
+      "users/de/setup/setup-process"
+    ],
+    "Twasi Panel": [
+      "users/de/twasi-panel/panel-structure",
+      "users/de/twasi-panel/themes",
+      "users/de/twasi-panel/bot-status",
+      "users/de/twasi-panel/profile-page",
+      "users/de/twasi-panel/plugin-store-page"
     ]
   }
 }

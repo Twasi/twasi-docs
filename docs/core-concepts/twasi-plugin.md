@@ -3,7 +3,7 @@ id: twasi-plugin
 title: The Twasi-Plugin
 ---
 
-Twasi itself does not provide many features to use in the Twitch chat. Instead of that it loads plugins that contain these features bundled in a .jar file.
+Twasi itself does not provide many features to use in the Twitch chat. Instead it loads plugins that contain these features bundled in a .jar file.
 
 ## The Twasi-plugin-framework
 
@@ -13,7 +13,7 @@ Twasi-Core contains the Twasi-plugin-framework. This is a Java framework for bui
 
 ### The TwasiPlugin class
 
-Every Twasi-plugin has a main class that is loaded by the Twasi Core. This class needs to extend the "TwasiPlugin" class of Twasi core. It is the main interface for interacting with the core.
+Every Twasi-plugin has a main class that is loaded by the Twasi Core. This class needs to extend the "TwasiPlugin" class of Twasi Core. It is the main interface for interacting with the core.
 
 It consists of the following methods and functions that can be overridden:
 
@@ -27,7 +27,7 @@ It consists of the following methods and functions that can be overridden:
 
 ### The TwasiUserPlugin class
 
-The *TwasiPlugin* class is instantiated once the plugin is loaded. It has a function that must be overridden called *getUserPluginClass()* that returns a class extending the *TwasiUserPlugin* class. This class will now be instantiated for each Twasi-user who has the plugin installed. The idea behind this is simplicity for the developers. You can temporarily store information and context that belongs to a channel in class variables of your *UserPlugin*-class and do not have to put these information in maps or something similar.
+The *TwasiPlugin* class is instantiated once the plugin is loaded. It has a function that must be overridden called *getUserPluginClass()* that returns a class extending the *TwasiUserPlugin* class. This class will now be instantiated for each Twasi-user who has the plugin installed. The idea behind this is simplicity for the developers. You can temporarily store information and context that belongs to a channel in class variables of your *UserPlugin*-class and don't have to put these information in maps or something similar.
 
 It consists of the following methods and functions that can be overridden:
 
@@ -35,14 +35,14 @@ It consists of the following methods and functions that can be overridden:
  | --- | --- | --- | 
  | onEnable(TwasiEnableEvent) | void | An event handler that will be called when the UserPlugin is enabled (After restarting the core). | 
  | onDisable(TwasiDisableEvent) | void | An event handler that will be called when the UserPlugin is disabled (When stopping the core). | 
- | onInstall(TwasiInstallEvent) | void | An event handler that will be called when the UserPlugin is plugin is installed. | 
- | onUninstall(TwasiInstallEvent) | void | An event handler that will be called when the UserPlugin is plugin is uninstalled. | 
+ | onInstall(TwasiInstallEvent) | void | An event handler that will be called when the UserPlugin is installed. | 
+ | onUninstall(TwasiInstallEvent) | void | An event handler that will be called when the UserPlugin is uninstalled. | 
  | onCommand(TwasiCommandEvent) | void | An event handler that will be called when a command is executed. | 
  | onMessage(TwasiMessageEvent) | void | An event handler that will be called when a message is sent to the user's chat (ignoring the bot's messages). | 
 
 **None of them must be overridden**
 
-> Overriding the onCommand method will disable the command registration system which is highly recommended to use due to it's flexibility.
+> Overriding the onCommand method will disable the command registration system which is highly recommended to use due to its flexibility.
 
 > If you want to use the onMessage method, you need to set "messageHandler" to true in your plugin.yml file.
 
