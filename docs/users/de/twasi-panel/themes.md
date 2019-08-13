@@ -3,18 +3,18 @@ id: themes
 title: Themes
 ---
 
-## Seriously. Who wants to work with a bad looking site?
+## Jetzt mal ehrlich. Wer möchte auf einer schlecht aussehenden Website arbeiten? 
 
-Especially when you have the desire to scream out loudly, when you throw a glance at it.
-But as we all know, taste is different. So we decided to have a bunch of cool-looking themes you can choose from.  
+Vor allem, wenn man den Wunsch hat, laut zu schreien, wenn man nur einen Blick darauf wirft.
+Aber wie wir alle wissen, hat jeder einen anderen Geschmack. Also haben wir uns entschieden, eine Reihe von cool aussehenden Themes anzubieten, aus denen du wählen kannst.  
 
-### How can I choose a theme?
+### Wie kann ich ein Theme auswählen?
 
-If you have read the previous page of this documentation, you should know that you can find the themeswitch button in the header section of the panel. Its icon looks like a little colour palette.  
-If you click on it, you will be prompted with a dialog that looks just like the following:
+Wenn du die vorherige Seite dieser Dokumentation gelesen hast, solltest du wissen, dass du die Schaltfläche für das Wechseln des Themes im Kopfbereich des Panels findest. Sein Symbol sieht aus wie eine kleine Farbpalette.  
+Wenn du darauf klickst, wird dir ein Dialogfeld angezeigt, das so aussieht wie das folgende:
 
 ![Themes](/img/userdocs/twasi-panel/themes/themeswitcher.png)
 
-As you can see, you might also use your Twitch banner as the background of the header section of your Twasi panel.  
+Du kannst sogar dein Twitch-Banner als Hintergrund für den Kopfbereich deines Twasi-Panels verwenden.
 
-And yes, there is also a Windows 95 theme. •ᴗ•
+Und ja, es gibt auch ein Windows 95 Theme. •ᴗ•
