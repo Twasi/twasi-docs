@@ -1,43 +1,43 @@
 ---
 id: profile-page
-title: Profile Page
+title: Profilseite
 ---
 
-> The profile page is not fully implemented yet.  
-We will work on the profile page during the Closed Beta of Twasi.
+> Die Profilseite ist noch nicht vollständig implementiert. 
+Wir werden an der Profilseite während der Closed Beta von Twasi arbeiten.
 
-## Sections of the profile page
+## Bereiche der Profilseite
 
-The profile page consists of a variety of different cards with diverse functions.
+Die Profilseite besteht aus einer Vielzahl von verschiedenen Karten mit unterschiedlichen Funktionen.
 
-### Your Twasi data
+### Deine Twasi-Daten
 
-In the "*Your Twasi data*" card you will find general information about your Twasi and Twitch account.  
-From there onward you can also delete your whole Twasi account.
+In der Karte "*Deine Twasi-Daten*" findest du allgemeine Informationen zu deinem Twasi und Twitch Konto.  
+Von dort aus kannst du auch deinen gesamten Twasi-Account löschen.
 
 ![Your Twasi Data](/img/userdocs/twasi-panel/profile-page/your-twasi-data.png)
 
 ### Social Media
 
-The "*Social Media*" section is used to connect your Social Media accounts to Twasi.  
-Thereupon, developers can use functions of the connected accounts to implement new features to their plugins.
+Der Abschnitt "*Social Media*" dient dazu, deine Social Media-Konten mit Twasi zu verbinden.  
+Entwickler können daraufhin Funktionen der verbundenen Konten nutzen, um neue Features in ihren Plugins zu implementieren.
 
-> This feature is not usable at the moment.
+> Diese Funktion ist im Moment noch nicht verfügbar.
 
 ![Social Media](/img/userdocs/twasi-panel/profile-page/social-media.png)
 
 ### Badges
 
-The "*Badges*" are there to show others how special you are. We release badges after certain events or for certain achievements.
+Die "*Badges*" sind dazu da, anderen zu zeigen, wie besonders du bist. Wir veröffentlichen Badges nach bestimmten Veranstaltungen oder für bestimmte Errungenschaften.
 
-> This feature is not usable at the moment.
+> Diese Funktion ist im Moment noch nicht verfügbar.
 
 ![Badges](/img/userdocs/twasi-panel/profile-page/badges.png)
 
-### Own bot account
+### Eigener Bot-Account
 
-With this feature you can connect your own bot account with Twasi to show messages with your specific Twitch bot account in your channel.
+Mit dieser Funktion kannst du dein eigenes Bot-Konto mit Twasi verbinden, um Nachrichten mit deinem speziellen Twitch-Bot-Konto in deinem Channel anzuzeigen.
 
-> This feature is not usable at the moment.
+> Diese Funktion ist im Moment noch nicht verfügbar.
 
 ![Own Bot Account](/img/userdocs/twasi-panel/profile-page/bot-account.png)

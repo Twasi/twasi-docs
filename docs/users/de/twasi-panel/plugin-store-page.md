@@ -1,21 +1,21 @@
 ---
 id: plugin-store-page
-title: The Plugin Store
+title: Der Plugin Store
 ---
 
-## What is the plugin store?
+## Was ist der Plugin-Store?
 
-The Twasi plugin store is what makes us unique.  
-It provides plugins written by our own developer team and by other developers who used their creativity and skills to share their own plugin ideas with the community.  
+Der Twasi Plugin Store ist das, was uns einzigartig macht.  
+Es bietet Plugins, die von unserem eigenen Entwicklerteam und von anderen Entwicklern geschrieben wurden, die ihre Kreativität und Fähigkeiten genutzt haben, um ihre eigenen Plugin-Ideen mit der Community zu teilen.  
 
-### Who can write plugins for Twasi? Can I also write plugins for Twasi?
+### Wer kann Plugins für Twasi schreiben? Kann ich auch Plugins für Twasi schreiben? 
 
-Everyone can write Twasi plugins! We provide a whole documentation just for that purpose.  
-If you are interested in writing your own Twasi plugins, please have a deeper look into our [Developers Documentation](/docs/home).
+Jeder kann Twasi-Plugins schreiben! Wir bieten eine komplette Dokumentation nur für diesen Zweck an.  
+Wenn du daran interessiert bist deine eigenen Twasi-Plugins zu schreiben, wirf bitte einen Blick in unsere Dokumentation für Entwickler ([Developers Documentation](/docs/home)).
 
-### How can I install / uninstall plugins?
+### Wie kann ich Plugins installieren / deinstallieren?
 
-You can install any plugin you want to have by clicking the "*install*" Button. To uninstall a plugin you don't want to use any longer, just click the "*uninstall*" button.  
-If you install a plugin, its functionality will be automatically applied to your instance of Twasi.
+Du kannst jedes Plugin - welches du haben möchtest - installieren, indem du auf die "*installieren*"-Schaltfläche klickst. Um ein Plugin - welches du nicht mehr verwenden möchtest - zu deinstallieren, musst du auf die Schaltfläche "*deinstallieren*" klicken.  
+Wenn du ein Plugin installierst, wird seine Funktionalität automatisch auf deine Instanz von Twasi angewendet.
 
 ![Install Button](/img/userdocs/twasi-panel/plugin-store/install.png)
