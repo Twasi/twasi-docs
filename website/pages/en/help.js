@@ -27,7 +27,7 @@ function Help(props) {
       title: 'Browse Docs',
     },
     {
-      content: 'Ask questions about the documentation and project',
+      content: 'Ask questions about the documentation and project<br/>',
       title: 'Join the community',
     },
     {
@@ -43,7 +43,11 @@ function Help(props) {
           <header className="postHeader">
             <h1>Need help?</h1>
           </header>
-          <p>This project is maintained by a dedicated group of people.</p>
+          <p>
+            We want to provide the best Support possible.<br/>
+            If you have anything to ask, just ask. Don't be shy.<br/>
+            Or use the following platforms to request help.
+          </p>
           <GridBlock contents={supportLinks} layout="threeColumn" />
         </div>
       </Container>

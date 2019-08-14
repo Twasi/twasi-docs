@@ -104,7 +104,7 @@ class Index extends React.Component {
               'To make Twasi stand out from other similar Projects we introduced **Twasi Plugins**.' +
               'With Twasi Plugins you can completely customize your personal instance of the Twasi Chatbot.' +
               'Another benefit with of a modular **Open Source** Project is that other Developers can contribute to Twasi to make it even better.',
-            image: `${baseUrl}img/undraw_charts.svg`,
+            image: `${baseUrl}img/undraw_status_update.svg`,
             imageAlign: 'left',
             title: 'Modular Structure',
           },
@@ -112,15 +112,17 @@ class Index extends React.Component {
       </Block>
     );
 
-    const Description = () => (
+    const OpenSource = () => (
       <Block background="light">
         {[
           {
             content:
-              'This is another description of how this project is useful',
-            image: `${baseUrl}img/undraw_note_list.svg`,
+              'We want people to contribute to our work.<br/>'+
+              'We are proud to say that we are completely open source.<br/>'+
+              'you can find our repositories on our [**Github Page**](https://github.com/Twasi).',
+            image: `${baseUrl}img/undraw_developer_activity.svg`,
             imageAlign: 'right',
-            title: 'Description',
+            title: 'Open Source',
           },
         ]}
       </Block>
@@ -132,7 +134,7 @@ class Index extends React.Component {
           {
             content:
               'We provide a powerfull API to use for your personal Project.<br/>' +
-              'You can find a detailed Documentation for the Twasi API [**here**](https://twasi.net)',
+              'You can find a detailed Documentation for the Twasi API [**here**](https://twasi.net).',
             image: `${baseUrl}img/undraw_collecting.svg`,
             imageAlign: 'right',
             title: 'Powerfull Twasi API',
@@ -205,7 +207,7 @@ class Index extends React.Component {
           <ComponentsSection />
           <TwasiAPISection />
           <PluginsSection />
-          {/*<Description />*/}
+          <OpenSource />
           <SupportSection />
         </div>
       </div>
