@@ -104,7 +104,7 @@ class Index extends React.Component {
               'To make Twasi stand out from other similar Projects we introduced **Twasi Plugins**.' +
               'With Twasi Plugins you can completely customize your personal instance of the Twasi Chatbot.' +
               'Another benefit with of a modular **Open Source** Project is that other Developers can contribute to Twasi to make it even better.',
-            image: `${baseUrl}img/undraw_code_review.svg`,
+            image: `${baseUrl}img/undraw_charts.svg`,
             imageAlign: 'left',
             title: 'Modular Structure',
           },
@@ -133,7 +133,7 @@ class Index extends React.Component {
             content:
               'We provide a powerfull API to use for your personal Project.<br/>' +
               'You can find a detailed Documentation for the Twasi API [**here**](https://twasi.net)',
-            image: `${baseUrl}img/undraw_youtube_tutorial.svg`,
+            image: `${baseUrl}img/undraw_collecting.svg`,
             imageAlign: 'right',
             title: 'Powerfull Twasi API',
           },
@@ -146,19 +146,19 @@ class Index extends React.Component {
         {[
           {
             content: 'Twasi Core is the Core Application of the Twasi Twitchbot. It hosts all the other plugins, manages the connection to the interface (Twitch IRC) and manages data persistence.',
-            image: `${baseUrl}img/undraw_react.svg`,
+            //image: `${baseUrl}img/undraw_collecting.svg`,
             imageAlign: 'top',
             title: 'Twasi Core',
           },
           {
             content: 'Twasi itself does not provide many features to use in the Twitch chat. Instead it loads plugins that contain these features bundled in a .jar file.',
-            image: `${baseUrl}img/undraw_operating_system.svg`,
+            //image: `${baseUrl}img/undraw_following.svg`,
             imageAlign: 'top',
             title: 'Twasi Plugins',
           },
           {
             content: 'This is the management board for the Twitch Bot. You can control, enable, disable and manage plugins and Functions of the Bot here.',
-            image: `${baseUrl}img/undraw_monitor.svg`,
+            //image: `${baseUrl}img/undraw_charts.svg`,
             imageAlign: 'top',
             title: 'Twasi Panel',
           },
@@ -205,7 +205,7 @@ class Index extends React.Component {
           <ComponentsSection />
           <TwasiAPISection />
           <PluginsSection />
-          <Description />
+          {/*<Description />*/}
           <SupportSection />
         </div>
       </div>
