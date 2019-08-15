@@ -203,11 +203,11 @@ class Index extends React.Component {
 
     return (
       <div>
-        <div>
+        <div style={{ backgroundColor: '#4352af', color: '#ffffff' }}>
           <HomeSplash siteConfig={siteConfig} language={language} />
           <ComponentsSection />
         </div>
-        <div className="mainContainer">
+        <div className="mainContainer" style={{ paddingTop: '0px' }}>
           <TwasiAPISection />
           <PluginsSection />
           <OpenSource />
