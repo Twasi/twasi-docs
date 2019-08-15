@@ -8,8 +8,6 @@ files:
     source: '/docs/**/*.md'
     translation: '/website/translated_docs/%locale%/%original_file_name%'
     languages_mapping: &anchor
-      locale:
-        'de-DE': 'de-DE'
   -
     source: '/website/i18n/en.json'
     translation: '/website/i18n/%locale%.json'
