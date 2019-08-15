@@ -119,8 +119,9 @@ class Index extends React.Component {
           {
             content:
               'We want people to contribute to our work.<br/>'+
-              'We are proud to say that we are completely open source.<br/>'+
-              'you can find our repositories on our [**Github Page**](https://github.com/Twasi).',
+              'You can share your code, contribute with other developers and even share your plugins with the Twasi community.<br/>'+
+              'There is no need to say that Open Source is the best way for us to go.<br/><br/>'+
+              '[**Find out more**](https://twasi.net)',
             image: `${baseUrl}img/undraw_developer_activity.svg`,
             imageAlign: 'right',
             title: 'Open Source',
@@ -133,12 +134,13 @@ class Index extends React.Component {
       <Block background="light">
         {[
           {
-            content:
-              'We provide a powerfull API to use for your personal Project.<br/>' +
-              'You can find a detailed Documentation for the Twasi API [**here**](https://twasi.net).',
+            content: 'We provide a **powerfull API** to use for your personal Project.<br/>' +
+              'The API enables you, the developer to use data from streams tracked by Twasi to create wonderfull features for Twasi members to use in their channels.<br/>' +
+              'There are a lot of usefull endpoints to choose from to bring your idea to Twasi.<br/><br/>' +
+              '[**Find out more**](https://twasi.net)',
             image: `${baseUrl}img/undraw_code_typing.svg`,
             imageAlign: 'right',
-            title: 'Powerfull Twasi API',
+            title: 'Powerfull API',
           },
         ]}
       </Block>
