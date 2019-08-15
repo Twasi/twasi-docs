@@ -23,7 +23,7 @@ class Footer extends React.Component {
 
   render() {
     return (
-      <footer className="nav-footer" id="footer">
+      <footer style={{ background: '#1a2035', color: '#afb6c5' }} className="nav-footer" id="footer">
         <section className="sitemap">
           <a href={this.props.config.baseUrl} className="nav-home">
             {this.props.config.footerIcon && (
@@ -85,6 +85,12 @@ class Footer extends React.Component {
                 />
               </div>
             )}
+          </div>
+          <div>
+            <h5>Legals</h5>
+            <a href={`${this.props.config.baseUrl}blog`}>Privacy</a>
+            <a href={`${this.props.config.baseUrl}blog`}>Terms of Use</a>
+            <a href={`${this.props.config.baseUrl}blog`}>Imprint</a>
           </div>
         </section>
 

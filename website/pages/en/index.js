@@ -22,7 +22,7 @@ class HomeSplash extends React.Component {
     const docUrl = doc => `${baseUrl}${docsPart}${langPart}${doc}`;
 
     const SplashContainer = props => (
-      <div className="homeContainer">
+      <div style={{ background: '#1a2035', color: '#afb6c5' }} className="homeContainer">
         <div className="homeSplashFade">
           <div className="wrapper homeWrapper">{props.children}</div>
         </div>
@@ -36,8 +36,8 @@ class HomeSplash extends React.Component {
     );
 
     const ProjectTitle = () => (
-      <h2 className="projectTitle">
-        {siteConfig.title}
+      <h2 className="projectTitle" style={{ color: '#ffffff' }}>
+        <img height="100" src={siteConfig.baseUrl + 'img/docs-logo.svg'} />
         <small>{siteConfig.tagline}</small>
       </h2>
     );
@@ -52,7 +52,7 @@ class HomeSplash extends React.Component {
 
     const Button = props => (
       <div className="pluginWrapper buttonWrapper">
-        <a className="button" href={props.href} target={props.target}>
+        <a style={{ background: '#3f51b5', color: '#ffffff' }} className="button" href={props.href} target={props.target}>
           {props.children}
         </a>
       </div>
@@ -135,7 +135,7 @@ class Index extends React.Component {
             content:
               'We provide a powerfull API to use for your personal Project.<br/>' +
               'You can find a detailed Documentation for the Twasi API [**here**](https://twasi.net).',
-            image: `${baseUrl}img/undraw_collecting.svg`,
+            image: `${baseUrl}img/undraw_code_typing.svg`,
             imageAlign: 'right',
             title: 'Powerfull Twasi API',
           },
@@ -202,9 +202,9 @@ class Index extends React.Component {
 
     return (
       <div>
-        <div style={{ height: '100vh' }}>
-        <HomeSplash siteConfig={siteConfig} language={language} />
-        <ComponentsSection />
+        <div>
+          <HomeSplash siteConfig={siteConfig} language={language} />
+          <ComponentsSection />
         </div>
         <div className="mainContainer">
           <TwasiAPISection />
