@@ -1,0 +1,249 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Writing the plugin base · TwasiDocs</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="Getting started in Twasi-Plugin development is easy. All you need is basic knowledge of the Java programming language and an IDE (**I**ntegrated **D**evelopment **E**nvironment)."/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Writing the plugin base · TwasiDocs"/><meta property="og:type" content="website"/><meta property="og:url" content="https://github.com/twasi/"/><meta property="og:description" content="Getting started in Twasi-Plugin development is easy. All you need is basic knowledge of the Java programming language and an IDE (**I**ntegrated **D**evelopment **E**nvironment)."/><meta property="og:image" content="https://github.com/twasi/img/undraw_online.svg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://github.com/twasi/img/undraw_tweetstorm.svg"/><link rel="shortcut icon" href="/img/favicon.ico"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-dark.min.css"/><link rel="alternate" type="application/atom+xml" href="https://github.com/twasi/blog/atom.xml" title="TwasiDocs Blog ATOM Feed"/><link rel="alternate" type="application/rss+xml" href="https://github.com/twasi/blog/feed.xml" title="TwasiDocs Blog RSS Feed"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/prism.css"/><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/en"><img class="logo" src="/img/docs-logo.svg" alt="TwasiDocs"/><h2 class="headerTitleWithLogo">TwasiDocs</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="siteNavGroupActive"><a href="/docs/en/home" target="_self">Developers</a></li><li class=""><a href="/docs/en/users/en/home" target="_self">Users</a></li><li class=""><a href="/en/help" target="_self">Help</a></li><li class=""><a href="/blog/" target="_self">Blog</a></li><span><li><a id="languages-menu" href="#"><img class="languages-icon" src="/img/language.svg" alt="Languages icon"/>English</a><div id="languages-dropdown" class="hide"><ul id="languages-dropdown-items"><li><a href="/docs/de/getting-started/plugin-base">Deutsch</a></li></ul></div></li><script>
+        const languagesMenuItem = document.getElementById("languages-menu");
+        const languagesDropDown = document.getElementById("languages-dropdown");
+        languagesMenuItem.addEventListener("click", function(event) {
+          event.preventDefault();
+
+          if (languagesDropDown.className == "hide") {
+            languagesDropDown.className = "visible";
+          } else {
+            languagesDropDown.className = "hide";
+          }
+        });
+      </script></span></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>Getting started</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle">Welcome</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/en/home">Home</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Core concepts</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/en/core-concepts/twasi-plugin">The Twasi-Plugin</a></li><li class="navListItem"><a class="navItem" href="/docs/en/core-concepts/twasi-command">The Twasi-Command</a></li><li class="navListItem"><a class="navItem" href="/docs/en/core-concepts/twasi-variable">The Twasi-Variable</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Getting started</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/en/getting-started/local-setup">Local Twasi setup</a></li><li class="navListItem navListItemActive"><a class="navItem" href="/docs/en/getting-started/plugin-base">Plugin Base</a></li><li class="navListItem"><a class="navItem" href="/docs/en/getting-started/plugin-commands">Plugin commands</a></li><li class="navListItem"><a class="navItem" href="/docs/en/getting-started/plugin-translations">Plugin translations</a></li><li class="navListItem"><a class="navItem" href="/docs/en/getting-started/plugin-variables">Plugin variables</a></li><li class="navListItem"><a class="navItem" href="/docs/en/getting-started/plugin-permissions">Plugin permissions</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 class="postHeaderTitle">Writing the plugin base</h1></header><article><div><span><p>Getting started in Twasi-Plugin development is easy. All you need is basic knowledge of the Java programming language and an IDE (<strong>I</strong>ntegrated <strong>D</strong>evelopment <strong>E</strong>nvironment).</p>
+<blockquote>
+<p>We highly recommend using IntelliJ IDEA for Java development since it is smartest IDE available and heavily speeds up coding. There's a free community version available that has everything you'll ever need. You can download it <a href="">here</a>.</p>
+</blockquote>
+<p>We are going to create an example plugin without further functionality. On the next pages we will add commands, variables, permissions, services, an API and a database repository for it.</p>
+<blockquote>
+<p>To continue, please make sure that you have the <strong>JDK 1.8</strong> installed. You can also use an OpenJDK Build of version 1.8 from <a href="https://github.com/ojdkbuild/ojdkbuild/releases">here</a>. Twasi development is working fine with it.</p>
+</blockquote>
+<h2><a class="anchor" aria-hidden="true" id="creating-the-project"></a><a href="#creating-the-project" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Creating the project</h2>
+<p>First you need to create a new Maven project. I use IntelliJ IDEA for that. If you want to use another IDE, please find out how to create a Maven project with it on the internet.</p>
+<blockquote>
+<p>Maven is a dependency injection system for Java. It will help you by adding the Twasi-Plugin-Framework to your project. Please don't be deterred if you haven't used Maven yet. It's quite simple to get started and simplifies your dependency management.</p>
+</blockquote>
+<p>To do that, click on &quot;Create new Project&quot;, choose <em>Maven</em> on the left and select (or configure) your <strong>JDK 1.8</strong>. After that you need to choose a package and an ArtifactID. Please use your own package name (which usually consists of a domain name that you own backwards: <em>merlinw.de</em> &gt; de.merlinw, twasi.net &gt; net.twasi). The ArtifactID is your plugin's / project's name.</p>
+<p>Maven will now create this file structure for you:</p>
+<pre><code class="hljs">|<span class="hljs-string">
++-- src/
+</span>|<span class="hljs-string">   +-- main/
+</span>|<span class="hljs-string">   </span>|<span class="hljs-string">   +-- java/
+</span>|<span class="hljs-string">   </span>|<span class="hljs-string">   +-- resources/
+</span>|<span class="hljs-string">   </span>|
+|<span class="hljs-string">   +-- test/
+</span>|<span class="hljs-string">       +-- java/
+</span>|
++-- pom.xml
+|<span class="hljs-string">
+</span></code></pre>
+<h2><a class="anchor" aria-hidden="true" id="adding-the-framework-using-maven"></a><a href="#adding-the-framework-using-maven" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Adding the framework using Maven</h2>
+<p>Open up the pom.xml file. Here you can specify the dependencies of your plugin. It will look very similar to this:</p>
+<pre><code class="hljs css language-xml"><span class="hljs-meta">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">project</span> <span class="hljs-attr">xmlns</span>=<span class="hljs-string">"http://maven.apache.org/POM/4.0.0"</span>
+         <span class="hljs-attr">xmlns:xsi</span>=<span class="hljs-string">"http://www.w3.org/2001/XMLSchema-instance"</span>
+         <span class="hljs-attr">xsi:schemaLocation</span>=<span class="hljs-string">"http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">modelVersion</span>&gt;</span>4.0.0<span class="hljs-tag">&lt;/<span class="hljs-name">modelVersion</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>de.merlinw<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>ExamplePlugin<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>1.0-SNAPSHOT<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span>
+
+<span class="hljs-tag">&lt;/<span class="hljs-name">project</span>&gt;</span>
+</code></pre>
+<blockquote>
+<p>IntelliJ will prompt you to enable auto import at the bottom right corner. You should do that, it's very useful!</p>
+</blockquote>
+<p><img src="/img/docs/getting-started/plugin-base/maven-prompt.png" alt="Maven Auto Import Prompt"></p>
+<p>Now we need to include Twasi-Core into our project to get access to the Plugin-Framework. We also need to tell Maven where to search for it. To do so, we add the Twasi-Artifactory as a repository and the Twasi-Core as a dependency (directly after the &lt;<strong>version</strong>&gt;-tag):</p>
+<pre><code class="hljs css language-xml">    <span class="hljs-tag">&lt;<span class="hljs-name">repositories</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">repository</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">snapshots</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">enabled</span>&gt;</span>false<span class="hljs-tag">&lt;/<span class="hljs-name">enabled</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">snapshots</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">id</span>&gt;</span>central<span class="hljs-tag">&lt;/<span class="hljs-name">id</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">name</span>&gt;</span>libs-release<span class="hljs-tag">&lt;/<span class="hljs-name">name</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">url</span>&gt;</span>https://artifactory.twasi.net/artifactory/libs-release<span class="hljs-tag">&lt;/<span class="hljs-name">url</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">repository</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">repository</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">snapshots</span>/&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">id</span>&gt;</span>snapshots<span class="hljs-tag">&lt;/<span class="hljs-name">id</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">name</span>&gt;</span>libs-snapshot<span class="hljs-tag">&lt;/<span class="hljs-name">name</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">url</span>&gt;</span>https://artifactory.twasi.net/artifactory/libs-snapshot<span class="hljs-tag">&lt;/<span class="hljs-name">url</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">repository</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">repositories</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">dependencies</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>net.twasi<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>TwasiCore<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>0.0.1-SNAPSHOT<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">scope</span>&gt;</span>provided<span class="hljs-tag">&lt;/<span class="hljs-name">scope</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">dependencies</span>&gt;</span>
+</code></pre>
+<p>If you do not use IntelliJ or have auto-import disabled, make sure that maven imports the dependencies.</p>
+<blockquote>
+<p>&quot;&lt;<strong>scope</strong>&gt;provided&lt;<strong>/scope</strong>&gt;&quot; tells the Maven compiler not to include the Twasi-Core into your jar file when you compile your plugin. Since the plugin is loaded directly from the core, all classes of the framework will be available at runtime.</p>
+</blockquote>
+<h2><a class="anchor" aria-hidden="true" id="creating-the-plugins-main-classes"></a><a href="#creating-the-plugins-main-classes" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Creating the plugin's main classes</h2>
+<h3><a class="anchor" aria-hidden="true" id="the-twasiplugin-class"></a><a href="#the-twasiplugin-class" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>The TwasiPlugin class</h3>
+<p>The entry point of every Twasi-plugin is the <em>TwasiPlugin</em>-class. To add it, create your package inside of the &quot;/src/main/java/&quot; folder and add a new class to it (you can use any class name, I'll take <em>ExamplePlugin</em>) and make it extend <em>TwasiPlugin</em> like this:</p>
+<pre><code class="hljs css language-java"><span class="hljs-keyword">package</span> de.merlinw;
+
+<span class="hljs-keyword">import</span> net.twasi.core.logger.TwasiLogger;
+<span class="hljs-keyword">import</span> net.twasi.core.plugin.TwasiPlugin;
+<span class="hljs-keyword">import</span> net.twasi.core.plugin.api.TwasiUserPlugin;
+
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ExamplePlugin</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">TwasiPlugin</span> </span>{
+    
+    <span class="hljs-keyword">public</span> Class&lt;? extends TwasiUserPlugin&gt; getUserPluginClass() {
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">null</span>;
+    }
+
+    <span class="hljs-comment">// To test if your plugin works, you can make it say hello on startup</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onActivate</span><span class="hljs-params">()</span></span>{
+        TwasiLogger.log.info(<span class="hljs-string">"Hello! I'm the example plugin c:"</span>);
+    }
+    
+}
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="the-twasiuserplugin-class"></a><a href="#the-twasiuserplugin-class" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>The TwasiUserPlugin class</h3>
+<p>Every plugin needs to specify a <em>TwasiUserPlugin</em>-class. This class will be instantiated for each user who has installed the plugin. Add another class (I'll name it <em>ExampleUserPlugin</em>) and make it extend <em>TwasiUserPlugin</em>:</p>
+<pre><code class="hljs css language-java"><span class="hljs-keyword">package</span> de.merlinw;
+
+<span class="hljs-keyword">import</span> net.twasi.core.plugin.api.TwasiUserPlugin;
+
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ExampleUserPlugin</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">TwasiUserPlugin</span> </span>{    
+}
+</code></pre>
+<p>Now make your <em>TwasiPlugin</em> know your <em>UserPlugin</em> class using the <em>getUserPluginClass()</em> method:</p>
+<pre><code class="hljs css language-java"><span class="hljs-keyword">package</span> de.merlinw;
+
+<span class="hljs-keyword">import</span> net.twasi.core.plugin.TwasiPlugin;
+<span class="hljs-keyword">import</span> net.twasi.core.plugin.api.TwasiUserPlugin;
+
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ExamplePlugin</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">TwasiPlugin</span> </span>{
+
+    <span class="hljs-keyword">public</span> Class&lt;? extends TwasiUserPlugin&gt; getUserPluginClass() {
+        <span class="hljs-keyword">return</span> ExampleUserPlugin.class;
+    }
+
+}
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="creating-the-pluginyml-file"></a><a href="#creating-the-pluginyml-file" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Creating the plugin.yml file</h2>
+<p>Now you need to tell Twasi-Core where your <em>TwasiPlugin</em>-class is located. To do that and to give the core more information about your plugin (like it's name, the version etc.), create a new file called &quot;plugin.yml&quot; in the &quot;/src/main/resources&quot; directory containing the following properties:</p>
+<pre><code class="hljs css language-yml"><span class="hljs-attr">name:</span> <span class="hljs-string">"ExamplePlugin"</span> <span class="hljs-comment"># This should be unique</span>
+<span class="hljs-attr">author:</span> <span class="hljs-string">"Merlin Westphal"</span>
+<span class="hljs-attr">main:</span> <span class="hljs-string">de.merlinw.ExamplePlugin</span> <span class="hljs-comment"># Specify the full name including the package</span>
+<span class="hljs-attr">description:</span> <span class="hljs-string">"Just an example plugin"</span>
+</code></pre>
+<p>You can find all available properties <a href="/docs/core-concepts/twasi-plugin#pluginyml-properties">here</a>.</p>
+<h2><a class="anchor" aria-hidden="true" id="adding-a-plugin-configuration"></a><a href="#adding-a-plugin-configuration" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Adding a plugin configuration</h2>
+<p>If your plugin needs a configuration (for API-Credentials e.g.), you can define a configuration template and let Twasi do the rest for you. It will create a yml file for you automatically that can be used in your code in no time.</p>
+<blockquote>
+<p>If your plugin doesn't need further configuration properties, just skip this step!</p>
+</blockquote>
+<h3><a class="anchor" aria-hidden="true" id="the-template-class"></a><a href="#the-template-class" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>The template class</h3>
+<p>You need to define the properties your configuration file should contain in a class like this:</p>
+<pre><code class="hljs css language-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyPluginConfiguration</span> </span>{
+
+    <span class="hljs-keyword">public</span> String API_KEY = <span class="hljs-string">"API_TOKEN"</span>;
+    <span class="hljs-keyword">public</span> String API_SECRET = <span class="hljs-string">"API_SECRET"</span>;
+    <span class="hljs-keyword">public</span> String[] SCOPES = {};
+
+}
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="assign-the-template-and-load-the-configuration-at-runtime"></a><a href="#assign-the-template-and-load-the-configuration-at-runtime" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Assign the template and load the configuration at runtime</h3>
+<p>In your TwasiPluginClass you can now pass this template to Twasi by defining a type parameter and get the configuration using the <em>getConfiguration()</em> method:</p>
+<pre><code class="hljs css language-Java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyPlugin</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">TwasiPlugin</span>&lt;<span class="hljs-title">MyPluginConfiguration</span>&gt; </span>{
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onActivate</span><span class="hljs-params">()</span></span>{
+        MyPluginConfiguration config = <span class="hljs-keyword">this</span>.getConfiguration();
+        TwasiLogger.log.debug(<span class="hljs-string">"API-Token: "</span> + config.API_KEY);
+    }
+
+}
+</code></pre>
+<p>When the <em>getConfiguration()</em> method is called the first time, it will create a yaml file containing all fields of your template in the /plugins/config folder (<em>plugin-name</em>.yml). If you define values in the template, it will put them as default values into the yaml file.</p>
+<h3><a class="anchor" aria-hidden="true" id="nesting-properties"></a><a href="#nesting-properties" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Nesting properties</h3>
+<p>You can also nest properties by defining a SubClass like this:</p>
+<pre><code class="hljs css language-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyPluginConfiguration</span> </span>{
+
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> property = <span class="hljs-number">10</span>;
+    <span class="hljs-keyword">public</span> APICredentials API = <span class="hljs-keyword">new</span> APICredentials();
+
+    <span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">APICredentials</span> </span>{
+        <span class="hljs-keyword">public</span> String API_KEY = <span class="hljs-string">"API_TOKEN"</span>;
+        <span class="hljs-keyword">public</span> String API_SECRET = <span class="hljs-string">"API_SECRET"</span>;
+        <span class="hljs-keyword">public</span> String[] SCOPES = {};
+    }
+
+}
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="building-the-plugin"></a><a href="#building-the-plugin" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Building the plugin</h2>
+<blockquote>
+<p>To test your plugin in a local environment, you need to set up a Twasi-Core instance, if you haven't done that yet. You can learn how to do that <a href="/docs/getting-started/local-setup">here</a>.</p>
+</blockquote>
+<p>Your plugin base is finished and Twasi-Core should be able to load it. All you need to do now is to build it to get a .jar file. In IntelliJ, you can create a runtime-configuration for that. Just click &quot;Add configuration&quot; at the top bar of the IDE, click the add-button, choose Maven and enter &quot;clean compile package&quot; into the command-line field. Save the configuration and click run. Now Maven compiles your plugin and puts the .jar file into a new folder called &quot;target&quot;.</p>
+<p>If you don't use IntelliJ, please install Maven globally on your system. You can find a tutorial for that <a href="https://www.baeldung.com/install-maven-on-windows-linux-mac">here</a>.</p>
+<p>After you've installed Maven, just open up a terminal in the root folder of your plugin (where the pom.xml file is located) and run &quot;mvn clean compile package&quot;.</p>
+<h2><a class="anchor" aria-hidden="true" id="continue"></a><a href="#continue" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Continue</h2>
+<p>In the <a href="/docs/getting-started/plugin-commands">next part</a> of the &quot;Getting started&quot; series you will learn how to add <a href="/docs/core-concepts/twasi-command">commands</a> to your plugin!</p>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/en/getting-started/local-setup"><span class="arrow-prev">← </span><span>Local Twasi setup</span></a><a class="docs-next button" href="/docs/en/getting-started/plugin-commands"><span>Plugin commands</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#creating-the-project">Creating the project</a></li><li><a href="#adding-the-framework-using-maven">Adding the framework using Maven</a></li><li><a href="#creating-the-plugins-main-classes">Creating the plugin's main classes</a><ul class="toc-headings"><li><a href="#the-twasiplugin-class">The TwasiPlugin class</a></li><li><a href="#the-twasiuserplugin-class">The TwasiUserPlugin class</a></li></ul></li><li><a href="#creating-the-pluginyml-file">Creating the plugin.yml file</a></li><li><a href="#adding-a-plugin-configuration">Adding a plugin configuration</a><ul class="toc-headings"><li><a href="#the-template-class">The template class</a></li><li><a href="#assign-the-template-and-load-the-configuration-at-runtime">Assign the template and load the configuration at runtime</a></li><li><a href="#nesting-properties">Nesting properties</a></li></ul></li><li><a href="#building-the-plugin">Building the plugin</a></li><li><a href="#continue">Continue</a></li></ul></nav></div><footer style="background:#1a2035;color:#afb6c5" class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/logo_small.png" alt="TwasiDocs" width="66" height="58"/></a><div><h5>Docs</h5><a href="/docs/en/users/home.html">User Documentation</a><a href="/docs/en/home.html">Developer Documentation</a><a href="/docs/en/doc3.html">API Reference</a></div><div><h5>Community</h5><a href="https://discord.gg/sQyhWrG">Discord</a><a href="https://twitter.com/twasinet" target="_blank" rel="noreferrer noopener">Twitter</a></div><div><h5>More</h5><a href="/blog">Blog</a><a href="https://github.com/twasi" target="_blank">GitHub</a></div><div><h5>Legals</h5><a href="/blog">Privacy</a><a href="/blog">Terms of Use</a><a href="/blog">Imprint</a></div></section><section class="copyright">Copyright © 2019 Twasi | Twasi.NET | Docs.Twasi.NET</section></footer></div></body></html>
