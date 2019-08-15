@@ -104,7 +104,8 @@ class Index extends React.Component {
             content:
               'To make Twasi stand out from other similar Projects we introduced **Twasi Plugins**.' +
               'With Twasi Plugins you can completely customize your personal instance of the Twasi Chatbot.' +
-              'Another benefit with of a modular **Open Source** Project is that other Developers can contribute to Twasi to make it even better.',
+              'Another benefit with of a modular **Open Source** Project is that other Developers can contribute to Twasi to make it even better.<br/><br/>' +
+              '[**Find out more**](https://github.com/Twasi)',
             image: `${baseUrl}img/undraw_status_update.svg`,
             imageAlign: 'left',
             title: 'Modular Structure',
@@ -121,7 +122,7 @@ class Index extends React.Component {
               'We want people to contribute to our work.<br/>'+
               'You can share your code, contribute with other developers and even share your plugins with the Twasi community.<br/>'+
               'There is no need to say that Open Source is the best way for us to go.<br/><br/>'+
-              '[**Find out more**](https://twasi.net)',
+              '[**Explore our GitHub page**](https://github.com/Twasi)',
             image: `${baseUrl}img/undraw_developer_activity.svg`,
             imageAlign: 'right',
             title: 'Open Source',
@@ -147,23 +148,26 @@ class Index extends React.Component {
     );
 
     const ComponentsSection = () => (
-      <Block layout="fourColumn">
+      <Block className="headerColumns" layout="fourColumn">
         {[
           {
-            content: 'Twasi Core is the Core Application of the Twasi Twitchbot. It hosts all the other plugins, manages the connection to the interface (Twitch IRC) and manages data persistence.',
+            content: 'Twasi Core is the Core Application of the Twasi Twitchbot. It hosts all the other plugins, manages the connection to the interface (Twitch IRC) and manages data persistence.<br/><br/>' +
+            '[**Learn more**](https://github.com/Twasi)',
             //image: `${baseUrl}img/undraw_collecting.svg`,
             imageAlign: 'top',
             title: 'Twasi Core',
           },
           {
-            content: 'Twasi itself does not provide many features to use in the Twitch chat. Instead it loads plugins that contain these features bundled in a .jar file.',
+            content: 'Twasi itself does not provide many features to use in the Twitch chat. Instead it loads plugins that contain these features bundled in a .jar file.<br/><br/>' +
             //image: `${baseUrl}img/undraw_following.svg`,
+            '[**Learn more**](https://github.com/Twasi)',
             imageAlign: 'top',
             title: 'Twasi Plugins',
           },
           {
-            content: 'This is the management board for the Twitch Bot. You can control, enable, disable and manage plugins and Functions of the Bot here.',
+            content: 'This is the management board for the Twitch Bot. You can control, enable, disable and manage plugins and Functions of the Bot here.<br/><br/>' +
             //image: `${baseUrl}img/undraw_charts.svg`,
+            '[**Learn more**](https://github.com/Twasi)',
             imageAlign: 'top',
             title: 'Twasi Panel',
           },
