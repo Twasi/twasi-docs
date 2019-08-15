@@ -202,9 +202,11 @@ class Index extends React.Component {
 
     return (
       <div>
+        <div style={{ height: '100vh' }}>
         <HomeSplash siteConfig={siteConfig} language={language} />
+        <ComponentsSection />
+        </div>
         <div className="mainContainer">
-          <ComponentsSection />
           <TwasiAPISection />
           <PluginsSection />
           <OpenSource />
