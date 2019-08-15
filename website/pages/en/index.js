@@ -24,7 +24,7 @@ class HomeSplash extends React.Component {
     const SplashContainer = props => (
       <div style={{ zIndex: '50', background: '#1a2035', color: '#afb6c5', height: 'calc(100vh - 50px)', position: 'relative' }} className="homeContainer">
         <div className="homeSplashFade">
-          <div className="wrapper homeWrapper">{props.children}</div>
+          <div style={{ paddingTop: '150px' }} className="wrapper homeWrapper">{props.children}</div>
         </div>
         <div style={{ zIndex: '-2', width: '100%', height: '442px', backgroundImage: 'url(' + siteConfig.baseUrl + 'img/waves.svg)', backgroundRepeat: 'no-repeat', position: 'absolute', bottom: '0px', left: '0' }} />
       </div>
