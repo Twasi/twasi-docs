@@ -5,7 +5,17 @@ cache:
   directories:
   - website/node_modules
 script:
-  - cd website && yarn && yarn run build
+  # crowdin install
+  - sudo apt-get install default-jre
+  - wget https://artifacts.crowdin.com/repo/deb/crowdin.deb -O crowdin.deb
+  - sudo dpkg -i crowdin.deb
+  # Write translations
+  - cd website && yarn && yarn run write-translations && cd ..
+  # translations upload/download
+  - crowdin --config crowdin.yaml upload sources --auto-update -b master
+  - crowdin --config crowdin.yaml download -b master
+  # Build website
+  - cd website && yarn && yarn run build && cd ..
 
 deploy:
   provider: pages
