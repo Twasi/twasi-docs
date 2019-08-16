@@ -7,7 +7,7 @@ const languages = [
   {
     enabled: true,
     name: 'Deutsch',
-    tag: 'de',
+    tag: 'de-DE',
   },
 ];
 module.exports = languages;
