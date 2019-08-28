@@ -41,7 +41,7 @@ const siteConfig = {
   headerLinks: [
     {doc: 'home', label: 'Developers'},
     {doc: 'users/en/home', label: 'Users'},
-    {page: 'help', label: 'Help'},
+    {page: 'changelogs', label: 'Changelogs'},
     {blog: true, label: 'Blog'},
   ],
 
