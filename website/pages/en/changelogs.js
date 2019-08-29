@@ -9,7 +9,6 @@ const React = require('react');
 
 const CompLibrary = require('../../core/CompLibrary.js');
 
-const MarkdownBlock = CompLibrary.MarkdownBlock;
 const Container = CompLibrary.Container;
 const GridBlock = CompLibrary.GridBlock;
 
@@ -22,13 +21,37 @@ function Changelogs(props) {
       <Container className="mainContainer documentContainer postContainer">
         <div className="post">
           <header className="postHeader">
-            <h1>Changelogs</h1>
+            <h1>28.08.2019</h1>
           </header>
-          <p>Here you can find all Changes made to Twasi.</p>
         </div>
-        <MarkdownBlock>
-
-        </MarkdownBlock>
+        <h3>Twasi Panel</h3>
+        <ul>
+          <li>
+            [Commands] Added a confirmation Dialog when trying to add a command that already exists.
+          </li>
+          <li>
+            [Variables] Added a confirmation Dialog when trying to add a variable that already exists.
+          </li>
+        </ul>
+        <h3>Twasi Docs</h3>
+        <ul>
+          <li>
+            [Changelog] Added a dedicated changelog page.
+          </li>
+        </ul>
+        <br />
+        <hr />
+        <div className="post">
+          <header className="postHeader">
+            <h1>26.08.2019</h1>
+          </header>
+        </div>
+        <h3>Twasi Panel</h3>
+        <ul>
+          <li>
+            [Commands, Variables, Supporttickets] Fixed issue with text encoding/decoding.
+          </li>
+        </ul>
       </Container>
     </div>
   );
