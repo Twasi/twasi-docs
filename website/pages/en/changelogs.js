@@ -24,7 +24,7 @@ function Changelogs(props) {
             <h1>28.08.2019</h1>
           </header>
         </div>
-        <h3>Twasi Panel</h3>
+        <h3>Twasi Panel #598</h3>
         <ul>
           <li>
             [Commands] Added a confirmation Dialog when trying to add a command that already exists.
@@ -46,7 +46,7 @@ function Changelogs(props) {
             <h1>26.08.2019</h1>
           </header>
         </div>
-        <h3>Twasi Panel</h3>
+        <h3>Twasi Panel #593</h3>
         <ul>
           <li>
             [Commands, Variables, Supporttickets] Fixed issue with text encoding/decoding.
