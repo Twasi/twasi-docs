@@ -13,5 +13,5 @@ There are two possible states **running** and **stopped**.
 
 | State | Default | Reacts to commands | Is tracking data | Stays in channel |
 | --- | --- | --- | --- | --- |
-| running | yes | yes | yes | yes |
-| stopped | no | no | no | no |
+| running | Yes | Yes | Yes | Yes |
+| stopped | No | No | No | No |

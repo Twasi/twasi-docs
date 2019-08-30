@@ -29,7 +29,8 @@
       "users/en/twasi-panel/themes",
       "users/en/twasi-panel/bot-status",
       "users/en/twasi-panel/profile-page",
-      "users/en/twasi-panel/plugin-store-page"
+      "users/en/twasi-panel/plugin-store-page",
+      "users/en/twasi-panel/variables"
     ]
   },
   "userdocs-de": {
@@ -44,7 +45,8 @@
       "users/de/twasi-panel/themes",
       "users/de/twasi-panel/bot-status",
       "users/de/twasi-panel/profile-page",
-      "users/de/twasi-panel/plugin-store-page"
+      "users/de/twasi-panel/plugin-store-page",
+      "users/de/twasi-panel/variables"
     ]
   }
 }
