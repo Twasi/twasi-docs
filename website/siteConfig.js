@@ -40,7 +40,7 @@ const siteConfig = {
   // For no header links in the top nav bar -> headerLinks: [],
   headerLinks: [
     {doc: 'home', label: 'Developers'},
-    {doc: 'users/en/home', label: 'Users'},
+    {doc: 'users/home', label: 'Users'},
     {page: 'changelogs', label: 'Changelogs'},
     {blog: true, label: 'Blog'},
   ],
