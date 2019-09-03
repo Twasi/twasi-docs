@@ -1,0 +1,278 @@
+<!DOCTYPE html><html lang="de-DE"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Adding commands to a twasi plugin · TwasiDocs</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="There are several ways to implement commands into your plugin:"/><meta name="docsearch:language" content="de-DE"/><meta property="og:title" content="Adding commands to a twasi plugin · TwasiDocs"/><meta property="og:type" content="website"/><meta property="og:url" content="https://github.com/twasi/"/><meta property="og:description" content="There are several ways to implement commands into your plugin:"/><meta property="og:image" content="https://github.com/twasi/img/undraw_online.svg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://github.com/twasi/img/undraw_tweetstorm.svg"/><link rel="shortcut icon" href="/img/favicon.ico"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-dark.min.css"/><link rel="alternate" type="application/atom+xml" href="https://github.com/twasi/blog/atom.xml" title="TwasiDocs Blog ATOM Feed"/><link rel="alternate" type="application/rss+xml" href="https://github.com/twasi/blog/feed.xml" title="TwasiDocs Blog RSS Feed"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/prism.css"/><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/de-DE"><img class="logo" src="/img/docs-logo.svg" alt="TwasiDocs"/><h2 class="headerTitleWithLogo">TwasiDocs</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="siteNavGroupActive"><a href="/docs/de-DE/home" target="_self">Developers</a></li><li class=""><a href="/docs/de-DE/users/en/home" target="_self">Users</a></li><li class=""><a href="/de-DE/changelogs" target="_self">Changelogs</a></li><li class=""><a href="/blog/" target="_self">Blog</a></li><span><li><a id="languages-menu" href="#"><img class="languages-icon" src="/img/language.svg" alt="Languages icon"/>Deutsch</a><div id="languages-dropdown" class="hide"><ul id="languages-dropdown-items"><li><a href="/docs/en/getting-started/plugin-commands">English</a></li></ul></div></li><script>
+        const languagesMenuItem = document.getElementById("languages-menu");
+        const languagesDropDown = document.getElementById("languages-dropdown");
+        languagesMenuItem.addEventListener("click", function(event) {
+          event.preventDefault();
+
+          if (languagesDropDown.className == "hide") {
+            languagesDropDown.className = "visible";
+          } else {
+            languagesDropDown.className = "hide";
+          }
+        });
+      </script></span></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>Getting started</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle">Welcome</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/de-DE/home">Home</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Core concepts</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/de-DE/core-concepts/twasi-plugin">The Twasi-Plugin</a></li><li class="navListItem"><a class="navItem" href="/docs/de-DE/core-concepts/twasi-command">The Twasi-Command</a></li><li class="navListItem"><a class="navItem" href="/docs/de-DE/core-concepts/twasi-variable">The Twasi-Variable</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Getting started</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/de-DE/getting-started/local-setup">Local Twasi setup</a></li><li class="navListItem"><a class="navItem" href="/docs/de-DE/getting-started/plugin-base">Plugin Base</a></li><li class="navListItem navListItemActive"><a class="navItem" href="/docs/de-DE/getting-started/plugin-commands">Plugin commands</a></li><li class="navListItem"><a class="navItem" href="/docs/de-DE/getting-started/plugin-translations">Plugin translations</a></li><li class="navListItem"><a class="navItem" href="/docs/de-DE/getting-started/plugin-variables">Plugin variables</a></li><li class="navListItem"><a class="navItem" href="/docs/de-DE/getting-started/plugin-permissions">Plugin permissions</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 class="postHeaderTitle">Adding commands to a twasi plugin</h1></header><article><div><span><p>There are several ways to implement commands into your plugin:</p>
+<blockquote>
+<p>Please keep in mind that your plugin will not receive any command that it has not registered in it's plugin.yml file.</p>
+</blockquote>
+<h2><a class="anchor" aria-hidden="true" id="the-oncommand-method-recommended-for-static-commands"></a><a href="#the-oncommand-method-recommended-for-static-commands" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>The onCommand method (recommended for static commands)</h2>
+<p>The most basic way is to override the onCommand method in your TwasiUserPlugin class. (Take a look <a href="/docs/twasi-plugin">here</a> if you don't know about the TwasiUserPlugin class).</p>
+<pre><code class="hljs css language-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyAmazingUserPlugin</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">TwasiUserPlugin</span> </span>{
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onCommand</span><span class="hljs-params">(TwasiCommandEvent event)</span> </span>{
+        String usedCommand = event.getCommand().getCommandName();
+        TwasiLogger.log.debug(<span class="hljs-string">"Used command: "</span> + usedCommand);
+    }
+}
+</code></pre>
+<p>You can also handle multiple commands using this method, but this should only be used for really simple or static commands, not for more complex command structures.</p>
+<pre><code class="hljs css language-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyAmazingUserPlugin</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">TwasiUserPlugin</span> </span>{
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onCommand</span><span class="hljs-params">(TwasiCommandEvent e)</span> </span>{
+        <span class="hljs-keyword">switch</span> (e.getCommand().getCommandName().toLowerCase()) {
+            <span class="hljs-keyword">case</span> <span class="hljs-string">"test"</span>:
+                e.getCommand().reply(<span class="hljs-string">"successful"</span>);
+                <span class="hljs-keyword">break</span>;
+            <span class="hljs-keyword">case</span> <span class="hljs-string">"ping"</span>:
+                e.getCommand().reply(<span class="hljs-string">"pong"</span>);
+                <span class="hljs-keyword">break</span>;
+        }
+    }
+}
+</code></pre>
+<p><strong>Warning!</strong> Since the onCommand method calls registered command-controllers (see below), these won't work when you override it.</p>
+<h2><a class="anchor" aria-hidden="true" id="controller-driven-commands"></a><a href="#controller-driven-commands" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Controller-driven commands</h2>
+<p>It's much cleaner to create a controller class for every command that you register. This way you keep your code clean and separate everything into classes.</p>
+<blockquote>
+<p>If your plugin has multiple commands, you should create a new package inside of your base package called &quot;commands&quot; or something similar, containing all of your command controller classes.</p>
+</blockquote>
+<p>Your command controller will be instantiated once when you register it in your TwasiUserPlugin class. This means that your controller class has one object for each installed channel so you can store context information across one channel in its class variables.</p>
+<h3><a class="anchor" aria-hidden="true" id="the-twasiplugincommand-class"></a><a href="#the-twasiplugincommand-class" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>The TwasiPluginCommand-class</h3>
+<p>Using the TwasiPluginCommand class is recommended for simple and more complex commands. You should be fine with it in most cases. If your command has multiple subcommands, you should take a look at the StructuredPluginCommand-class.</p>
+<p>To get started, add a new class to your project and make it extend the <strong>TwasiPluginCommand</strong>-class:</p>
+<pre><code class="hljs css language-java"><span class="hljs-keyword">package</span> de.merlinw.commands;
+
+<span class="hljs-keyword">import</span> net.twasi.core.plugin.api.TwasiUserPlugin;
+<span class="hljs-keyword">import</span> net.twasi.core.plugin.api.customcommands.TwasiCustomCommandEvent;
+<span class="hljs-keyword">import</span> net.twasi.core.plugin.api.customcommands.TwasiPluginCommand;
+
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ExampleCommand</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">TwasiPluginCommand</span> </span>{
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">ExampleCommand</span><span class="hljs-params">(TwasiUserPlugin twasiUserPlugin)</span> </span>{
+        <span class="hljs-keyword">super</span>(twasiUserPlugin);
+    }
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">execute</span><span class="hljs-params">(TwasiCustomCommandEvent event)</span> </span>{
+        event.reply(<span class="hljs-string">"You successfully executed the example command! :o"</span>);
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>;
+    }
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">getCommandName</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">return</span> <span class="hljs-string">"example"</span>;
+    }
+
+}
+</code></pre>
+<p>You need to have the same constructor as the super class. Otherwise you will run into an error when you try to register your command. Just leave it as it is.</p>
+<p>The <em>getCommandName()</em> function has to be overridden too. Let it return the name of the command (one single word) the controller should react to.</p>
+<blockquote>
+<p>The command name should not contain the command prefix (which is '!' by default).</p>
+</blockquote>
+<p>The <em>execute(TwasiCustomCommandEvent event)</em> function is your main execution function that will always be called when someone executes your command. The returned boolean defines whether the command was successfully executed or not. If the command ran successfully, the command cooldown - if specified - is applied to the user who executed the command.</p>
+<h4><a class="anchor" aria-hidden="true" id="setting-up-permissions"></a><a href="#setting-up-permissions" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Setting up permissions</h4>
+<p>If the command should require a certain permission key, just override the <em>requirePermissionKey()</em> function and let it return the desired key. Twasi-Core will take care of the rest.</p>
+<p>This also works for TwasiSubCommands.</p>
+<h4><a class="anchor" aria-hidden="true" id="setting-up-a-cooldown"></a><a href="#setting-up-a-cooldown" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Setting up a cooldown</h4>
+<p>Commands have a default cooldown of one minute that is applied to the user and the command if the command was executed successfully. If you want to in-/decrease that cooldown, just override the <em>getCooldown()</em> function and let it return the desired duration.</p>
+<h4><a class="anchor" aria-hidden="true" id="setting-up-aliases"></a><a href="#setting-up-aliases" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Setting up aliases</h4>
+<p>This is <strong>not</strong> supported yet. It will be supported in the future. Promised!</p>
+<h4><a class="anchor" aria-hidden="true" id="other-settings"></a><a href="#other-settings" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Other settings</h4>
+<p><strong>Timers</strong></p>
+<p>Twasi supports timers. Timers are commands that are automatically executed in a given interval while the channel is live. If your command should be available as timer, override the <em>allowsTimer()</em> function and make it return true.</p>
+<blockquote>
+<p>This is only useful for non-functional commands. For example the <strong>!hosts</strong> command of the utitlies plugin has timers enabled.</p>
+</blockquote>
+<p><strong>Listing</strong></p>
+<p>Should your command not be listed when someone executes <strong>!commands</strong> in chat, override the <em>allowsListing()</em> function and make it return false.</p>
+<h4><a class="anchor" aria-hidden="true" id="registering-the-controller"></a><a href="#registering-the-controller" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Registering the controller</h4>
+<p>To register your controller, just call this function from your TwasiUserPlugin-class (inside of the constructor for example) for each of your commands:</p>
+<pre><code class="hljs css language-java">    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">ExampleUserPlugin</span><span class="hljs-params">()</span> </span>{
+        registerCommand(ExampleCommand.class);
+        registerCommand(ExampleStructuredCommand.class);
+    }
+</code></pre>
+<p>If you changed the constructor signature of your command controller class, the syntax above will throw an error. You can use this syntax instead:</p>
+<pre><code class="hljs css language-java">    registerCommand(<span class="hljs-keyword">new</span> ExampleCommand(<span class="hljs-keyword">this</span>, otherParameters));
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="the-structuredplugincommand-class"></a><a href="#the-structuredplugincommand-class" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>The StructuredPluginCommand-class</h3>
+<p>The more subcommands your command has (&quot;!command <strong>add</strong>&quot; and &quot;!command <strong>remove</strong>&quot; for example), the more confusing your code becomes. To keep things as clean and readable as possible, we introduced the StructuredPluginCommand into our Plugin-Framework.</p>
+<p>It works quite similar to the TwasiPluginCommand class but you can specify a bunch of subcommands that Twasi will automatically handle as if they were normal commands. In this way you have one controller for each subcommand and don't need tons of if-elses or switch cases.</p>
+<p>The StructuredPluginCommand is also multidimensional, so you can specify subcommands for your subcommands, which makes things a lot easier when you need to provide a complex command structure.</p>
+<p>You can start by creating a class extending StructuredPluginCommand:</p>
+<pre><code class="hljs css language-java"><span class="hljs-keyword">package</span> de.merlinw.commands;
+
+<span class="hljs-keyword">import</span> net.twasi.core.plugin.api.TwasiUserPlugin;
+<span class="hljs-keyword">import</span> net.twasi.core.plugin.api.customcommands.TwasiCustomCommandEvent;
+<span class="hljs-keyword">import</span> net.twasi.core.plugin.api.customcommands.structuredcommands.StructuredPluginCommand;
+<span class="hljs-keyword">import</span> net.twasi.core.plugin.api.customcommands.structuredcommands.subcommands.SubCommandCollection;
+
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ExampleStructuredCommand</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">StructuredPluginCommand</span> </span>{
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">ExampleStructuredCommand</span><span class="hljs-params">(TwasiUserPlugin twasiUserPlugin)</span> </span>{
+        <span class="hljs-keyword">super</span>(twasiUserPlugin);
+    }
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">handle</span><span class="hljs-params">(TwasiCustomCommandEvent event)</span> </span>{
+        <span class="hljs-comment">// This is the command handler for !example without a valid subcommand</span>
+    }
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">getCommandName</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">return</span> <span class="hljs-string">"example"</span>;
+    }
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> SubCommandCollection <span class="hljs-title">getSubCommands</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">null</span>;
+    }
+
+}
+</code></pre>
+<p>Since the <em>StructuredPluginCommand</em>-class extends <em>TwasiPluginCommand</em>, all of the functions are the same. The only difference is that the <em>execute</em> function is called <em>handle</em> in StructuredPluginCommands because the execute-function is working in the background. You can find the available functions and methods <a href="#setting-up-permissions">here</a>.</p>
+<h4><a class="anchor" aria-hidden="true" id="adding-subcommands"></a><a href="#adding-subcommands" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Adding subcommands</h4>
+<p>To add some subcommands to your controller, you need to return a SubCommandCollection on the <em>getSubCommands()</em> function.</p>
+<p><strong>First subcommand</strong></p>
+<pre><code class="hljs css language-java"><span class="hljs-keyword">package</span> de.merlinw.commands.example_subcommands;
+
+<span class="hljs-keyword">import</span> net.twasi.core.plugin.api.customcommands.TwasiCustomCommandEvent;
+<span class="hljs-keyword">import</span> net.twasi.core.plugin.api.customcommands.structuredcommands.TwasiStructuredCommandEvent;
+<span class="hljs-keyword">import</span> net.twasi.core.plugin.api.customcommands.structuredcommands.subcommands.ISubCommands;
+<span class="hljs-keyword">import</span> net.twasi.core.plugin.api.customcommands.structuredcommands.subcommands.TwasiSubCommand;
+
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">FirstSubCommand</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">TwasiSubCommand</span> </span>{
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">FirstSubCommand</span><span class="hljs-params">(TwasiCustomCommandEvent event, ISubCommands parent)</span> </span>{
+        <span class="hljs-keyword">super</span>(event, parent);
+    }
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">handle</span><span class="hljs-params">(TwasiStructuredCommandEvent event)</span> </span>{
+        event.reply(event.getArgs().get(<span class="hljs-number">0</span>));
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>;
+    }
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">getCommandName</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">return</span> <span class="hljs-string">"first"</span>;
+    }
+}
+</code></pre>
+<p><strong>Second subcommand</strong></p>
+<pre><code class="hljs css language-java"><span class="hljs-keyword">package</span> de.merlinw.commands.example_subcommands;
+
+<span class="hljs-keyword">import</span> net.twasi.core.plugin.api.customcommands.TwasiCustomCommandEvent;
+<span class="hljs-keyword">import</span> net.twasi.core.plugin.api.customcommands.structuredcommands.TwasiStructuredCommandEvent;
+<span class="hljs-keyword">import</span> net.twasi.core.plugin.api.customcommands.structuredcommands.subcommands.ISubCommands;
+<span class="hljs-keyword">import</span> net.twasi.core.plugin.api.customcommands.structuredcommands.subcommands.TwasiSubCommand;
+
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">SecondSubCommand</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">TwasiSubCommand</span> </span>{
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">SecondSubCommand</span><span class="hljs-params">(TwasiCustomCommandEvent event, ISubCommands parent)</span> </span>{
+        <span class="hljs-keyword">super</span>(event, parent);
+    }
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">handle</span><span class="hljs-params">(TwasiStructuredCommandEvent event)</span> </span>{
+        event.reply(<span class="hljs-string">"This is the second subcommand!"</span>);
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>;
+    }
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">getCommandName</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">return</span> <span class="hljs-string">"second"</span>;
+    }
+}
+</code></pre>
+<p><strong>Parent class</strong></p>
+<pre><code class="hljs css language-java">    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> SubCommandCollection <span class="hljs-title">getSubCommands</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">return</span> SubCommandCollection.OFCLASSES(
+                FirstSubCommand.class,
+                SecondSubCommand.class
+        );
+    }
+</code></pre>
+<blockquote>
+<p>You can also override the <em>getSubCommands()</em> method on subcommand-controllers to add subcommands to your subcommands. ( ͡° ͜ʖ ͡°)</p>
+</blockquote>
+<p>The FirstSubCommand-controller would react to commands like '<strong>!example first</strong>' now. It returns the first command argument. Since subcommands aim to behave like normal commands, the used subcommand name is removed from the argument list automatically. For '<strong>!example first 123</strong>', 123 would be the command output.</p>
+<p>Incoming commands that have an invalid subcommand will be handled by the parent class.</p>
+<h4><a class="anchor" aria-hidden="true" id="translations"></a><a href="#translations" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Translations</h4>
+<blockquote>
+<p>You will learn about the translation renderer on the next page.</p>
+</blockquote>
+<p>If you don't override the <em>handle</em> function, it will automatically render and return the translation key '<em>command-name</em>.syntax'.</p>
+<p>This also works for subcommands. If the example command had a subcommand called 'add', it would render and return the translation key 'example.add.syntax' by default.</p>
+<h2><a class="anchor" aria-hidden="true" id="continue"></a><a href="#continue" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Continue</h2>
+<p>In the <a href="/docs/getting-started/plugin-translations">next part</a> of the &quot;Getting started&quot; series you will learn how to add translations to your plugin!</p>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/de-DE/getting-started/plugin-base"><span class="arrow-prev">← </span><span>Plugin Base</span></a><a class="docs-next button" href="/docs/de-DE/getting-started/plugin-translations"><span>Plugin translations</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#the-oncommand-method-recommended-for-static-commands">The onCommand method (recommended for static commands)</a></li><li><a href="#controller-driven-commands">Controller-driven commands</a><ul class="toc-headings"><li><a href="#the-twasiplugincommand-class">The TwasiPluginCommand-class</a></li><li><a href="#the-structuredplugincommand-class">The StructuredPluginCommand-class</a></li></ul></li><li><a href="#continue">Continue</a></li></ul></nav></div><footer style="background:#1a2035;color:#afb6c5" class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/logo_small.png" alt="TwasiDocs" width="66" height="58"/></a><div><h5>Docs</h5><a href="/docs/de-DE/users/home.html">User Documentation</a><a href="/docs/de-DE/home.html">Developer Documentation</a><a href="/docs/de-DE/doc3.html">API Reference</a></div><div><h5>Community</h5><a href="https://discord.gg/sQyhWrG">Discord</a><a href="https://twitter.com/twasinet" target="_blank" rel="noreferrer noopener">Twitter</a></div><div><h5>More</h5><a href="/blog">Blog</a><a href="https://github.com/twasi" target="_blank">GitHub</a></div><div><h5>Legals</h5><a href="/blog">Privacy</a><a href="/blog">Terms of Use</a><a href="/blog">Imprint</a></div></section><section class="copyright">Copyright © 2019 Twasi | Twasi.NET | Docs.Twasi.NET</section></footer></div></body></html>

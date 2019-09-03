@@ -1,0 +1,200 @@
+<!DOCTYPE html><html lang="de-DE"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>The Twasi-Plugin · TwasiDocs</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="Twasi itself does not provide many features to use in the Twitch chat. Instead it loads plugins that contain these features bundled in a .jar file."/><meta name="docsearch:language" content="de-DE"/><meta property="og:title" content="The Twasi-Plugin · TwasiDocs"/><meta property="og:type" content="website"/><meta property="og:url" content="https://github.com/twasi/"/><meta property="og:description" content="Twasi itself does not provide many features to use in the Twitch chat. Instead it loads plugins that contain these features bundled in a .jar file."/><meta property="og:image" content="https://github.com/twasi/img/undraw_online.svg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://github.com/twasi/img/undraw_tweetstorm.svg"/><link rel="shortcut icon" href="/img/favicon.ico"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-dark.min.css"/><link rel="alternate" type="application/atom+xml" href="https://github.com/twasi/blog/atom.xml" title="TwasiDocs Blog ATOM Feed"/><link rel="alternate" type="application/rss+xml" href="https://github.com/twasi/blog/feed.xml" title="TwasiDocs Blog RSS Feed"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/prism.css"/><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/de-DE"><img class="logo" src="/img/docs-logo.svg" alt="TwasiDocs"/><h2 class="headerTitleWithLogo">TwasiDocs</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="siteNavGroupActive"><a href="/docs/de-DE/home" target="_self">Developers</a></li><li class=""><a href="/docs/de-DE/users/en/home" target="_self">Users</a></li><li class=""><a href="/de-DE/changelogs" target="_self">Changelogs</a></li><li class=""><a href="/blog/" target="_self">Blog</a></li><span><li><a id="languages-menu" href="#"><img class="languages-icon" src="/img/language.svg" alt="Languages icon"/>Deutsch</a><div id="languages-dropdown" class="hide"><ul id="languages-dropdown-items"><li><a href="/docs/en/core-concepts/twasi-plugin">English</a></li></ul></div></li><script>
+        const languagesMenuItem = document.getElementById("languages-menu");
+        const languagesDropDown = document.getElementById("languages-dropdown");
+        languagesMenuItem.addEventListener("click", function(event) {
+          event.preventDefault();
+
+          if (languagesDropDown.className == "hide") {
+            languagesDropDown.className = "visible";
+          } else {
+            languagesDropDown.className = "hide";
+          }
+        });
+      </script></span></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>Core concepts</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle">Welcome</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/de-DE/home">Home</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Core concepts</h3><ul class=""><li class="navListItem navListItemActive"><a class="navItem" href="/docs/de-DE/core-concepts/twasi-plugin">The Twasi-Plugin</a></li><li class="navListItem"><a class="navItem" href="/docs/de-DE/core-concepts/twasi-command">The Twasi-Command</a></li><li class="navListItem"><a class="navItem" href="/docs/de-DE/core-concepts/twasi-variable">The Twasi-Variable</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Getting started</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/de-DE/getting-started/local-setup">Local Twasi setup</a></li><li class="navListItem"><a class="navItem" href="/docs/de-DE/getting-started/plugin-base">Plugin Base</a></li><li class="navListItem"><a class="navItem" href="/docs/de-DE/getting-started/plugin-commands">Plugin commands</a></li><li class="navListItem"><a class="navItem" href="/docs/de-DE/getting-started/plugin-translations">Plugin translations</a></li><li class="navListItem"><a class="navItem" href="/docs/de-DE/getting-started/plugin-variables">Plugin variables</a></li><li class="navListItem"><a class="navItem" href="/docs/de-DE/getting-started/plugin-permissions">Plugin permissions</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 class="postHeaderTitle">The Twasi-Plugin</h1></header><article><div><span><p>Twasi itself does not provide many features to use in the Twitch chat. Instead it loads plugins that contain these features bundled in a .jar file.</p>
+<h2><a class="anchor" aria-hidden="true" id="the-twasi-plugin-framework"></a><a href="#the-twasi-plugin-framework" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>The Twasi-plugin-framework</h2>
+<p>Twasi-Core contains the Twasi-plugin-framework. This is a Java framework for building Twasi-features as easy as possible. You can include it using the Java dependency injection system &quot;Maven&quot;, since Twasi Core is deployed on our <a href="https://artifactory.twasi.net">public Maven Artifactory</a>.</p>
+<h2><a class="anchor" aria-hidden="true" id="what-does-a-twasi-plugin-consist-of"></a><a href="#what-does-a-twasi-plugin-consist-of" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>What does a Twasi-plugin consist of?</h2>
+<h3><a class="anchor" aria-hidden="true" id="the-twasiplugin-class"></a><a href="#the-twasiplugin-class" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>The TwasiPlugin class</h3>
+<p>Every Twasi-plugin has a main class that is loaded by the Twasi Core. This class needs to extend the &quot;TwasiPlugin&quot; class of Twasi Core. It is the main interface for interacting with the core.</p>
+<p>It consists of the following methods and functions that can be overridden:</p>
+<table>
+<thead>
+<tr><th>Name</th><th>Return type</th><th>Must be overridden</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>getUserPluginClass()</td><td>Class&lt;? extends TwasiUserPlugin&gt;</td><td>Yes</td><td>Returns the class that will be instantiated for each user that has the plugin installed.</td></tr>
+<tr><td>onActivate()</td><td>void</td><td>No</td><td>An event handler that will be called when the plugin is activated.</td></tr>
+<tr><td>onDeactivate()</td><td>void</td><td>No</td><td>An event handler that will be called when the plugin is deactivated.</td></tr>
+<tr><td>onReady()</td><td>void</td><td>No</td><td>An event handler that will be called when the plugin is ready.</td></tr>
+<tr><td>getGraphQLResolver()</td><td>GraphQLQueryResolver</td><td>No</td><td>If your plugin provides API endpoints for the public GraphQL-API, you need to return your GraphQL-Resolver here.</td></tr>
+</tbody>
+</table>
+<h3><a class="anchor" aria-hidden="true" id="the-twasiuserplugin-class"></a><a href="#the-twasiuserplugin-class" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>The TwasiUserPlugin class</h3>
+<p>The <em>TwasiPlugin</em> class is instantiated once the plugin is loaded. It has a function that must be overridden called <em>getUserPluginClass()</em> that returns a class extending the <em>TwasiUserPlugin</em> class. This class will now be instantiated for each Twasi-user who has the plugin installed. The idea behind this is simplicity for the developers. You can temporarily store information and context that belongs to a channel in class variables of your <em>UserPlugin</em>-class and don't have to put these information in maps or something similar.</p>
+<p>It consists of the following methods and functions that can be overridden:</p>
+<table>
+<thead>
+<tr><th>Name</th><th>Return type</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>onEnable(TwasiEnableEvent)</td><td>void</td><td>An event handler that will be called when the UserPlugin is enabled (After restarting the core).</td></tr>
+<tr><td>onDisable(TwasiDisableEvent)</td><td>void</td><td>An event handler that will be called when the UserPlugin is disabled (When stopping the core).</td></tr>
+<tr><td>onInstall(TwasiInstallEvent)</td><td>void</td><td>An event handler that will be called when the UserPlugin is installed.</td></tr>
+<tr><td>onUninstall(TwasiInstallEvent)</td><td>void</td><td>An event handler that will be called when the UserPlugin is uninstalled.</td></tr>
+<tr><td>onCommand(TwasiCommandEvent)</td><td>void</td><td>An event handler that will be called when a command is executed.</td></tr>
+<tr><td>onMessage(TwasiMessageEvent)</td><td>void</td><td>An event handler that will be called when a message is sent to the user's chat (ignoring the bot's messages).</td></tr>
+</tbody>
+</table>
+<p><strong>None of them must be overridden</strong></p>
+<blockquote>
+<p>Overriding the onCommand method will disable the command registration system which is highly recommended to use due to its flexibility.</p>
+<p>If you want to use the onMessage method, you need to set &quot;messageHandler&quot; to true in your plugin.yml file.</p>
+</blockquote>
+<h3><a class="anchor" aria-hidden="true" id="the-pluginyml-file"></a><a href="#the-pluginyml-file" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>The plugin.yml file</h3>
+<p>To make Twasi understand your plugin, you need to put a plugin.yml file into your resource folder (or directly into your jar-file). This file contains basic information about the plugin and tells the core which commands, permissions and API-endpoints are available. But we will come to these things later.</p>
+<h4><a class="anchor" aria-hidden="true" id="example-pluginyml"></a><a href="#example-pluginyml" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example plugin.yml</h4>
+<p>This is an example of how a simple plugin.yml file could look like:</p>
+<pre><code class="hljs css language-yml"><span class="hljs-attr">name:</span> <span class="hljs-string">"My cool plugin"</span>
+<span class="hljs-attr">author:</span> <span class="hljs-string">"DieserMerlin"</span>
+<span class="hljs-attr">main:</span> <span class="hljs-string">net.twasiplugin.example.ExamplePlugin</span>
+<span class="hljs-attr">version:</span> <span class="hljs-string">"1.0"</span>
+<span class="hljs-attr">description:</span> <span class="hljs-string">"An example plugin"</span>
+<span class="hljs-attr">commands:</span>
+<span class="hljs-bullet">    -</span> <span class="hljs-string">test</span>
+<span class="hljs-attr">permissions:</span>
+<span class="hljs-bullet">    -</span> <span class="hljs-string">exampleplugin.test</span>
+</code></pre>
+<h4><a class="anchor" aria-hidden="true" id="pluginyml-properties"></a><a href="#pluginyml-properties" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>plugin.yml properties</h4>
+<p>The following properties are available:</p>
+<table>
+<thead>
+<tr><th>name</th><th>type</th><th>description</th><th>required</th></tr>
+</thead>
+<tbody>
+<tr><td>name</td><td>string</td><td>The unique name of the plugin. Should not be changed later.</td><td>yes</td></tr>
+<tr><td>description</td><td>string</td><td>A short description of the plugin.</td><td>no</td></tr>
+<tr><td>author</td><td>string</td><td>The author's name.</td><td>yes</td></tr>
+<tr><td>version</td><td>string</td><td>The current version of the plugin.</td><td>yes</td></tr>
+<tr><td>main</td><td>string</td><td>The full path to your TwasiPlugin class including the package.</td><td>yes</td></tr>
+<tr><td>helpText</td><td>string</td><td>An explaination how your plugin works.</td><td>no</td></tr>
+<tr><td>api</td><td>string</td><td>GraphQL API definitions.</td><td>no</td></tr>
+<tr><td>messageHandler</td><td>boolean</td><td>Whether the plugin should receive all messages.</td><td>no</td></tr>
+<tr><td>dynamicCommandNames</td><td>boolean</td><td>Whether the plugin should listen to all commands.</td><td>no</td></tr>
+<tr><td>dependency</td><td>boolean</td><td>Whether the plugin is a TwasiDependency.</td><td>no</td></tr>
+<tr><td>hidden</td><td>boolean</td><td>Whether the plugin should be hidden from the plugin store.</td><td>no</td></tr>
+<tr><td>autoInstall</td><td>boolean</td><td>Whether the plugin should automatically install.</td><td>no</td></tr>
+<tr><td>commands</td><td>string[]</td><td>A list of all command names.</td><td>no</td></tr>
+<tr><td>permissions</td><td>string[]</td><td>A list of all permission keys the plugin uses.</td><td>no</td></tr>
+<tr><td>dependencies</td><td>string[]</td><td>Other Twasi-Plugins that the plugin depends on.</td><td>no</td></tr>
+</tbody>
+</table>
+<blockquote>
+<p>While the name of the plugin is required (because it's the &quot;id&quot; of the plugin), the description and the helptext are not. The reason is that you can provide these localized in the translation files of the plugin later.</p>
+</blockquote>
+<h4><a class="anchor" aria-hidden="true" id="behaviour-of-hidden-and-autoinstall"></a><a href="#behaviour-of-hidden-and-autoinstall" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Behaviour of <em>hidden</em> and <em>autoInstall</em>:</h4>
+<blockquote>
+<p>The properties <em>hidden</em> and <em>autoInstall</em> should not be used in most cases. They were implemented to create plugins that are always installed like the debug-plugin or the StreamTracker.</p>
+</blockquote>
+<table>
+<thead>
+<tr><th>hidden</th><th>autoInstall</th><th>behaviour</th></tr>
+</thead>
+<tbody>
+<tr><td>true</td><td>false</td><td>The plugin won't show up in the plugin store and will not be installed in any channel unless it is added to a user's plugin list manually using the database.</td></tr>
+<tr><td>false</td><td>true</td><td>New user's will see the plugin on the setup page of Twasi as recommended.</td></tr>
+<tr><td>true</td><td>true</td><td>The plugin won't show up in the plugin store but will be automatically loaded for every user when Twasi starts up.</td></tr>
+</tbody>
+</table>
+<h3><a class="anchor" aria-hidden="true" id="plugin-configurations"></a><a href="#plugin-configurations" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Plugin configurations</h3>
+<p>If your plugin needs a configuration file, you can create a template class with all of the settings that should be available. Twasi will automatically create the file for you based on the template you specify. Afterwards you can load this file in the code with one single line of code.</p>
+<blockquote>
+<p><strong>Possible use case:</strong> Your plugin integrates with a third party API and needs API credentials. Instead of hardcoding them, you can create a configuration file where the instance hoster can put them in.</p>
+</blockquote>
+<h3><a class="anchor" aria-hidden="true" id="translations"></a><a href="#translations" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Translations</h3>
+<p>Twasi is not restricted to one language. At the moment we support the German and the English language. To support multiple languages, Twasi uses translation files (<em>country-code</em>.lang) stored in the plugin's resource folder under /translations.</p>
+<p>Currently supported languages:</p>
+<table>
+<thead>
+<tr><th>code</th><th>country</th></tr>
+</thead>
+<tbody>
+<tr><td>DE_DE</td><td>Germany/Deutschland</td></tr>
+<tr><td>EN_GB</td><td>Great Britain</td></tr>
+</tbody>
+</table>
+<p>They are structured like this:</p>
+<pre><code class="hljs">translation.key=This is an example text.
+command.output=Hey {sender.displayName}!
+</code></pre>
+<blockquote>
+<p>You will learn about parameter binding like {sender.displayName} <a href="/docs/translations">here</a>.</p>
+</blockquote>
+<p>Translations keys can be chosen by the plugin developer but should be separated by dots.</p>
+<p>There are default translation keys that should always be set:</p>
+<table>
+<thead>
+<tr><th>key</th><th>description</th></tr>
+</thead>
+<tbody>
+<tr><td>plugin.name</td><td>The localized name of the plugin.</td></tr>
+<tr><td>plugin.description</td><td>The localized description of the plugin.</td></tr>
+<tr><td>plugin.helptext</td><td>The localized helptext of the plugin.</td></tr>
+</tbody>
+</table>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/de-DE/home"><span class="arrow-prev">← </span><span>Home</span></a><a class="docs-next button" href="/docs/de-DE/core-concepts/twasi-command"><span>The Twasi-Command</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#the-twasi-plugin-framework">The Twasi-plugin-framework</a></li><li><a href="#what-does-a-twasi-plugin-consist-of">What does a Twasi-plugin consist of?</a><ul class="toc-headings"><li><a href="#the-twasiplugin-class">The TwasiPlugin class</a></li><li><a href="#the-twasiuserplugin-class">The TwasiUserPlugin class</a></li><li><a href="#the-pluginyml-file">The plugin.yml file</a></li><li><a href="#plugin-configurations">Plugin configurations</a></li><li><a href="#translations">Translations</a></li></ul></li></ul></nav></div><footer style="background:#1a2035;color:#afb6c5" class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/logo_small.png" alt="TwasiDocs" width="66" height="58"/></a><div><h5>Docs</h5><a href="/docs/de-DE/users/home.html">User Documentation</a><a href="/docs/de-DE/home.html">Developer Documentation</a><a href="/docs/de-DE/doc3.html">API Reference</a></div><div><h5>Community</h5><a href="https://discord.gg/sQyhWrG">Discord</a><a href="https://twitter.com/twasinet" target="_blank" rel="noreferrer noopener">Twitter</a></div><div><h5>More</h5><a href="/blog">Blog</a><a href="https://github.com/twasi" target="_blank">GitHub</a></div><div><h5>Legals</h5><a href="/blog">Privacy</a><a href="/blog">Terms of Use</a><a href="/blog">Imprint</a></div></section><section class="copyright">Copyright © 2019 Twasi | Twasi.NET | Docs.Twasi.NET</section></footer></div></body></html>
