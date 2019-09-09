@@ -29,8 +29,11 @@
       "users/twasi-panel/themes",
       "users/twasi-panel/bot-status",
       "users/twasi-panel/profile-page",
-      "users/twasi-panel/plugin-store-page",
-      "users/twasi-panel/variables"
+      "users/twasi-panel/plugin-store-page"
+    ],
+    "Plugins": [
+      "users/plugins/commands",
+      "users/plugins/variables"
     ]
   }
 }
