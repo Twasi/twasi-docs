@@ -21,6 +21,19 @@ function Changelogs(props) {
       <Container className="mainContainer documentContainer postContainer">
         <div className="post">
           <header className="postHeader">
+            <h1>17.09.2019</h1>
+          </header>
+        </div>
+        <h3>Twasi Panel #626</h3>
+        <ul>
+          <li>
+            [Timed Messages] You can now create/delete and enable/disable timers.
+          </li>
+        </ul>
+        <br />
+        <hr />
+        <div className="post">
+          <header className="postHeader">
             <h1>09.09.2019</h1>
           </header>
         </div>
